@@ -1,29 +1,75 @@
+# Create a README.md file for the project
+readme_content = """# 📊 GTM Tracking Updates: SFZC.org
 
+**Project Code:** 2505-DTA-GTM-UPDATES  
+**Repo Role:** Central hub for analytics tag troubleshooting, documentation, and implementation related to SFZC.org
 
-## 🧾 Naming Convention
+---
 
-- `0000-ORG-Title`: Long-term projects that should remain easily visible
-- `YYMM-ORG-Title`: Timestamped short-term or time-bound projects
+## 🧠 Overview
 
-### ORG Codes
+This project consolidates multiple analytics-related tasks under a single memory and documentation framework. It brings together:
 
-| Code  | Meaning                    |
-| ----- | -------------------------- |
-| `CMS` | Content Management Systems |
-| `DAM` | Digital Asset Management   |
-| `DTA` | Data Tracking & Analytics  |
+- GA4 Ecommerce Tracking fixes for Classy donation events
+- Microsoft Clarity implementation via Google Tag Manager (GTM)
 
-Feel free to extend this list as new categories arise.
+All work supports the Drupal-based [SFZC.org](https://www.sfzc.org) website and is managed using GTM in the `<head>` section.
 
-## 🛠️ Usage Notes
+---
 
-- Avoid spaces in folder names — use hyphens instead
-- Each folder may be its own Git repo or sub-project
-- Shared tooling or configs should live in `/webops-config` if needed
+## 🗂️ Project Components
 
-## 🧠 Repo Philosophy
+### 1. `2505-dta-gtm-updates-troubleshooting.md`
+Primary memory file for the project. Combines technical details, task lists, diagnostics, and known issues for both Clarity and Classy/GA4 workflows.
 
-Keep things flat, clear, and automation-friendly. This structure supports:
-- Rapid CLI navigation
-- Date-based scanning
-- Easy archival or cleanup
+### 2. Task Areas
+- **Classy → GA4 Ecommerce Tracking**
+- **Microsoft Clarity Integration**
+
+See memory file for full context and status.
+
+---
+
+## 👥 Team & Contacts
+
+- **Lead:** Greg Bilke (`webcoordinator@sfzc.org`)
+- **Sponsor:** Dan Belsky (`dan.belsky@sfzc.org`)
+- **Vendor Support:** Community Boost
+
+---
+
+## 📎 Related Docs (Archived & Integrated)
+- `2505-gta-classy-gtm-memory.md`
+- `2505-dta-Clarity-heatmaps-memory.md`
+
+These documents were integrated into the main memory file and no longer need to be updated separately.
+
+---
+
+## 🔖 Naming Convention
+
+Follows internal SFZC WebOps naming structure:
+
+- `YYMM-ORG-Title` (e.g., `2505-dta-gtm-updates`)
+- ORG codes:  
+  - `DTA` = Data Tracking & Analytics  
+  - `CMS` = Content Management Systems  
+  - `DAM` = Digital Asset Management  
+
+---
+
+## ✅ Repo Usage Notes
+
+- All tasks should be reflected in the memory file.
+- Use Git commits to track changes to `2505-dta-gtm-updates-troubleshooting.md`.
+- For deployment-specific GTM configuration, see browser DevTools and GTM Preview Mode for testing.
+
+---
+
+"""
+
+readme_path = "/mnt/data/README.md"
+with open(readme_path, "w") as f:
+    f.write(readme_content)
+
+readme_path

@@ -1,3 +1,4 @@
+
 # 🧠 Project Memory: GTM Tracking Updates on SFZC.org  
 **Filename:** `2505-dta-gtm-updates-troubleshooting.md`  
 **Project Code:** 2505-DTA-GTM-UPDATES  
@@ -6,12 +7,13 @@
 ---
 
 ## 🔍 Project Overview
-This project combines and manages tracking diagnostics and tag implementations for SFZC.org. It unifies two previously parallel tasks:
+This project combines and manages tracking diagnostics and tag implementations for SFZC.org. It unifies three key task areas:
 
 - Microsoft Clarity Integration via GTM
 - Classy Donation Tracking (GA4 Ecommerce Events)
+- **GTM Health Check & Cookiebot Compliance Review** (New)
 
-All work is scoped within the existing Google Tag Manager (GTM) setup on [SFZC.org](https://sfzc.org), and includes testing, debugging, and implementation across GA4 and Clarity.
+All work is scoped within the existing Google Tag Manager (GTM) setup on [SFZC.org](https://sfzc.org), and includes testing, debugging, and implementation across GA4, Clarity, and third-party consent tooling.
 
 ---
 
@@ -56,29 +58,109 @@ All work is scoped within the existing Google Tag Manager (GTM) setup on [SFZC.o
 **Former File:** `2505-dta-Clarity-heatmaps-memory.md`
 
 #### 🔧 Setup Requirements
-- Clarity script to be installed via GTM (Custom HTML tag in `<head>`)
-- Target: **All Pages**
+- Script installed via GTM Custom HTML tag
+- Must load in the `<head>` of every page (Microsoft best practice)
+- Initially fire only on test page, then expand to All Pages
 
-#### 🧪 To-Do Checklist
-- [ ] Get Clarity script from Dan
-- [ ] Implement GTM tag
-- [ ] Confirm tag location in `<head>` via GTM
-- [ ] Use DevTools to verify request to `clarity.ms`
-- [ ] Confirm Clarity dashboard captures traffic
+#### 📄 Verified Configuration
+- Clarity Project ID: `rfyzkzgfcs`
+- Source: Email from Microsoft Clarity → shared via Dan Belsky
 
-#### 🔗 Project Links
-- [Clarity Dashboard](https://clarity.microsoft.com/projects/view/rfyzkzgfcs/dashboard?date=Last%203%20days)
-- [Clarity Setup](https://clarity.microsoft.com/projects/view/rfyzkzgfcs/settings#setup)
+```html
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rfyzkzgfcs");
+</script>
+```
+
+- Clarity Dashboard: https://clarity.microsoft.com/projects/view/rfyzkzgfcs/dashboard?date=Last%203%20days
+- Setup Docs: https://learn.microsoft.com/en-us/clarity/third-party-integrations/google-tag-manager
+
+#### 🧪 Testing Strategy
+| Step | Description | Status |
+|------|-------------|--------|
+| ✅ | Obtain Clarity script | Done |
+| ⬜ | Create GTM **Custom HTML tag** | Next |
+| ⬜ | Assign **test-only trigger** (`Page Path contains /test-page`) | Planned |
+| ⬜ | Confirm `<head>` injection and verify with DevTools | Pending |
+| ⬜ | Validate GTM tag in Preview mode | Pending |
+| ⬜ | Confirm data appears in Clarity dashboard | Pending |
+| ⬜ | Expand trigger to fire on All Pages | Pending |
+
+#### 📌 Notes from Dan Belsky
+- Clarity may already be receiving traffic via previous GA integration
+- No urgency; confirmed data flow visible in dashboard
+- Clarified options in Clarity’s setup panel are unclear; we chose GTM install per best practices
+
+#### 🔠 Tag Naming Recommendation
+- Initial tag: `Clarity - Load Script - HEAD - Test`
+- Final production: `Clarity - Load Script - HEAD - All Pages`
 
 ---
 
-## 🧰 Shared Diagnostics & Tools
+### 🟨 Task: GTM Health Check & Cookiebot Compliance Review  
+**Added:** 2025-05-14
 
-- **Browser DevTools**: Inspect tag firing and network requests
-- **GTM Preview Mode**: Tag validation
-- **Server Logs**: Review request blocks
-- **Clarity Dashboard**: Confirm pageview/session replay
-- **GA4 DebugView**: Track event data in real-time
+#### 📌 Context
+- Raised by: Dan Belsky, via feedback from Community Boost (see Cookiebot email)
+- Concern: GTM may not be properly configured to respect Cookiebot banner consent. Some tags (e.g., FB Pixel) are firing without being gated.
+- Relevance: SFZC.org’s compliance with GDPR/CCPA depends on properly handling marketing & analytics tracking based on consent.
+
+#### 📂 Source Document
+- Email: `sfzc.org Mail - Checking on Cookiebot.pdf`
+
+#### 🛠️ Goals
+- Conduct full GTM container audit for tag integrity and consent gating
+- Verify whether Google Consent Mode is active and tags are compliant
+- Identify & fix GTM misconfigurations
+
+#### 🧪 Diagnostic Focus Areas
+| Area | Purpose |
+|------|---------|
+| Cookiebot Consent Mode | Ensure Consent API wired to GTM |
+| GA4 Tags | Respecting analytics consent? |
+| Facebook Pixel | Blocked or firing early? |
+| Classy API | Server-side tagging bypassing consent? |
+| Tag Timing & Load | Detect misfiring or incorrect scope |
+| Legacy Tags | Identify unmaintained/inactive scripts |
+
+#### 🧰 Recommended Tools
+| Tool | Use Case |
+|------|----------|
+| GTM Preview Mode | Simulate and inspect tag firing |
+| Omnibug | Inspect live network requests and consent values |
+| Google Tag Assistant | GA4 validator |
+| Cookiebot Debugger | Show consent categories granted/denied |
+| GA4 DebugView | Track event firing live |
+| Clarity Dashboard | Confirm that traffic/session replay is working |
+
+#### 💻 Environment Notes
+- GTM in `<head>` across SFZC.org
+- Cookiebot is active but integration status with GTM unknown
+- Clarity integration underway
+- User setup: macOS, Chrome, DevTools
+
+#### 📋 Next Steps
+- [ ] Export current GTM container
+- [ ] Audit tags and consent settings via Omnibug
+- [ ] Review GTM Preview firing rules
+- [ ] Cross-reference Cookiebot consent state vs tag behavior
+
+---
+
+## 🧠 Tools Spotlight: Omnibug  
+**Type**: Browser Extension (Chrome, Firefox)  
+**Purpose**: Debug analytics and tag data  
+**URL**: [Omnibug for Chrome](https://chrome.google.com/webstore/detail/omnibug/jnkmfdileelhofjcijamephohjechhna)
+
+#### 🔍 Features
+- Shows decoded tracking payloads from GA4, FB Pixel, Clarity, Classy, etc.
+- Displays consent values
+- Helps verify tag behavior and blocking on user consent
+- Great for before/after comparisons on consent interactions
 
 ---
 
@@ -87,8 +169,9 @@ All work is scoped within the existing Google Tag Manager (GTM) setup on [SFZC.o
 The contents of the following documents are now fully integrated into this file as structured tasks:
 - `2505-gta-classy-gtm-memory.md`
 - `2505-dta-Clarity-heatmaps-memory.md`
+- `sfzc.org Mail - Checking on Cookiebot.pdf`
 
-This file is now the canonical project memory document.
+This file is the canonical working memory.
 
 ---
 
@@ -97,3 +180,5 @@ This file is now the canonical project memory document.
 | Date       | Update Summary                                      | By          |
 |------------|------------------------------------------------------|--------------|
 | 2025-05-14 | Initial merged memory created from two task threads | Greg Bilke   |
+| 2025-05-14 | Verified Clarity tracking code and implementation plan added | Assistant   |
+| 2025-05-14 | Added GTM Health Check task and Cookiebot concern | Assistant   |

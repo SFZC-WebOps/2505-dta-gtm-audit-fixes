@@ -1,0 +1,405 @@
+﻿Task ID,Created At,Completed At,Last Modified,Name,Section/Column,Assignee,Assignee Email,Start Date,Due Date,Tags,Notes,Projects,Parent task,Blocked By (Dependencies),Blocking (Dependencies),% Complete,Task Status,Priority,Note,Submitted by,Start Date,Status,Percent Done,Requested by,Location,Format,Teacher 1,Category,Accounting Designation,Start/End Times,Registration Cutoff,Teacher 2,Submitted By,Status,Teacher 1 email,Teacher 2 email,Welcome Letter Link,Event Description,Registration Info (SOE),Worked on by,Type,Requested by,Complexity,WEF - Existing URL,WEF - Name,WEF - Email,Class,Image Folder Link,Teacher 2 Bio,Teacher 1 Bio,Testing Status,Technical Impact Assessment,Compliance Requirements,Resource Estimation,Rollback Plan,Testing Requirements,Complexity,Resource Estimation,Cost Estimation,Stakeholder Communication,Blocked By (Dependencies),Blocking (Dependencies),Testing Status,Technical Impact Assessment,Security Impact Assessment,Compliance Requirements,Resource Estimation,Rollback Plan,Testing Requirements,Type,Complexity,Priority,Change Status,Resource Estimation,Cost Estimation,Stakeholder Communication,Type,WebOps - Priority,WebOps - Status
+1210063582486274,2025-04-24,,2025-05-01,Drupal/GTM → GA: 404 issues,Backlog/Recently assigned,Greg Bilke,webcoordinator@sfzc.org,,,EyesOn,"Asana task: https://app.asana.com/1/6982134569842/project/1209395002920108/task/1210040565432264
+
+Change Description
+
+Modified Google Tag Manager (GTM-TGH83XK) configuration to only track successful page loads by setting Response Status conditions to only include ""Success (200)"" status codes. This change prevents Google Analytics from tracking 404 error pages, which was inflating error statistics.
+
+Safety Considerations
+
+    Low-risk configuration change that doesn't affect site functionality
+    Only modifies analytics data collection, not user-facing content
+    No impact on page loading times or server performance
+
+Monitoring Plan
+
+    Daily review of Google Analytics reports for 7 days post-change
+    Compare to baseline report (SFZC_404_Baseline_Report_Pre-GTM-Fix_April2025.png)
+    Verify 404 error percentage drops from ~82% to ~13-14%
+",WebOps: *Change Management/Tracking*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,n/a,n/a,In Progress,"'- No impact on site functionality or performance
+- Will reduce the volume of data being processed by Google Analytics
+- Improves accuracy of analytics reporting
+- No changes to server-side code or Drupal core","'- No security impact
+- Change only affects what data is sent to Google Analytics
+- No modification to authentication or authorization systems
+- No new external dependencies or connections","'- No special compliance requirements
+- Change aligns with analytics best practices
+- Reduces unnecessary data collection, which aligns with data minimization principles
+- No personal or sensitive data handling changes","'- Implementation time: 10 minutes
+- Testing and verification: 1 hour initially, plus 10 minutes daily for 7 days
+- No additional server resources required
+- No additional licensing costs","If issues occur, rollback process is simple:
+
+Return to GTM settings (Configuration > System > Google Tag Manager)
+Uncheck ""Success (200)"" or remove all response status conditions
+Save configuration
+
+
+Expected rollback time: Less than 5 minutes
+No database or filesystem backups needed","'- Monitor Google Analytics Real-Time reports for 30 minutes after implementation
+- Verify page views are still being tracked for normal site usage
+- Compare total pageview counts before and after the change
+- Create test 404 errors and confirm they are not tracked in GA",CMS/Drupal,Moderately Complex,Medium/Normal,Testing,8,0.00,IT/OpsMan update,,,
+1209623424692857,2025-03-10,,2025-04-16,SFZC.org/CMS/Google Tag module: Cookiebot/Gate config issues,Group,,,,,,"REVIEWS
+
+250325
+
+    Research GT issues:
+        COOKIEBOT
+            Not fully configured to wrap tags based off of the Cookiebot banner
+        GATE
+            Not configured
+
+
+----------------------------------------
+
+ASSETS
+
+
+
+Checking on Cookiebot
+
+Dan Belsky
+Mon, Mar 10, 12:54 PM (7 days ago)
+
+
+
+
+to me
+
+Hey Greg,
+
+Happy Monday. In an effort to get our FB ads tracking working correctly, I've been working with a small firm, Community Boost, outsourced to us by Classy to assist (at no extra cost) with making sure our FB Ads Manager (FB Pixel) and Classy Conversions API are setup and tracking correctly. It's taken a few weeks but has gone well.
+
+In the course of this work, last week on Friday, Community Boost saw something they thought I should bring up with you. They mentioned that our GTM is not fully configured to wrap tags based off of the Cookiebot banner...they mentioned something about our gate not being configured. I've attached some screenshots from our meeting that might be useful for reference. 
+
+I'm not totally sure about the technical details beyond this, but wanted to mention it to you. I don't think this is a super-high priority since we've been operating with our current configuration for some time now. Just wanted to put this on your radar.
+
+Thanks,
+Dan
+
+https://app.asana.com/app/asana/-/get_asset?asset_id=1209707051641051
+
+
+
+https://app.asana.com/app/asana/-/get_asset?asset_id=1209707051641053
+
+ ",WebOps: Q/A-Support and Tasks,,,,,,,,,,,,,,,,,,,,,,,,,,,,"SFZC WebOps, SFZC OpsMan",CMS/Drupal,OpsMan,Moderatley Complex,,,,Task,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Medium,On Deck
+1209297739305960,2025-02-03,,2025-04-23,CMS/Drupal: Security Review/Core-Modules Updates,Planning,,,,,EyesOn,"REVIEWS
+
+252025
+
+    Two new core advisories
+    Google Tag module approved/pending
+    Do we need to renew security subscription?
+        We were on track to finish onboarding when David went on leave
+
+----------------------------------------
+
+ASSETS
+
+Google Tag - Moderately critical - Cross Site Request Forgery - SA-
+CONTRIB-2025-012
+
+From Norah (Kalamuna): A https://www.drupal.org/sa-contrib-2025-012 has been issued for the https://www.drupal.org/project/google_tag module.  Do you approve 1-2 hours of time to proceed with an update?
+
+
+----------------------------------------
+
+
+SFZC.org Security Assessment and Updates
+
+Greg Bilke <webcoordinator@sfzc.org>
+Jan 29, 2025, 3:47 P
+Hi Norah,
+
+I hope you're doing well. I wanted to touch base with you regarding a few security matters for the SFZC.org Drupal site:
+    Cloudflare Security Review
+    We recently discovered that our Cloudflare Web Application Firewall (WAF) Managed Rulesets had been deactivated. While we've since re-enabled them and haven't detected any security incidents, we'd like to conduct a security audit of the SFZC.org site since we're unsure how long the WAF was disabled. Could you provide details about what this audit would entail and an estimated number of hours needed?
+    Google Tag Module Update
+    Thank you for flagging the recent Drupal security alert for the Google Tag module. While I still need Dan's formal approval, I anticipate he'll greenlight the 1-2 hours you quoted for this update.
+    Security Review Module?
+    During my research into Drupal security options, I came across the Security Review module (https://www.drupal.org/project/security_review). Would you recommend implementing this for my regular site inspections, or is there another tool your team typically suggests?
+",WebOps: Infrastructure/Security,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Not Started,Drupal (moderatley critical),Drupal,Kalamuna,Kalamuna,Kalamuna,Highly Complex,2,500.00,Review with OpsMan,,,,,,,,,,,,,,,,,CMS/Drupal,High,In Progress
+1208581868526234,2024-10-18,2024-11-12,2024-11-12,CMS/Drupal - Google Tag Manager: GTM/GA tags not present,Group/Recently assigned,Greg Bilke,webcoordinator@sfzc.org,,,,,WebOps: Q/A-Support and Tasks,,,,,,,,,,,,,,,,,,,,,,,,,,,,"SFZC WebOps, Kalamuna",CMS/Drupal,OpsMan,Moderatley Complex,,,,Q/A - Support,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1208480303424430,2024-10-04,2024-10-15,2024-10-15,OCT - Transforming Depression and Anxiety: A Path of Skillful Compassion,Online Adv event & project tasks,Belen,belen.molinari@templeadv.com,,,,"Name of person submitting event:
+Brendan Crowe
+
+Event Title:
+Transforming Depression and Anxiety: A Path of Skillful Compassion
+
+Choose Category for the event:
+Psychology & Spirituality
+
+Format for this event:
+Four-week class
+
+Event Venue:
+Online Program
+
+Account Designation:
+42210-04-19: Online Workshops and Classes
+
+Start Date:
+Tuesday, Oct 22, 2024
+
+End Date:
+Tuesday, Nov 12, 2024
+
+Start/End Times:
+Tuesday Classes 5:30–7:30 pm PT | Thursday Practice Sessions 5:30–6:30 pm PT
+
+Event Description:
+We offer this course regularly because of high demand.
+
+Suzuki Roshi said, “To be you is enough, you know…”
+
+Weaving together mindfulness and contemporary psychology, this course explores how to best take care of ourselves by relating to depression and anxiety with compassion and understanding. Our purpose is for participants to learn and practice how to interrupt conditioning that hinder feeling better and noticing what is good in our lives. We encourage each student through skillful means to cultivate common sense practices that help us manage, and prevent, chronic feelings of unhappiness. By focusing on direct experience, we learn to see and disrupt habitual mind patterns that lead to depression and anxiety. 
+
+Each week will consist of two sessions:
+    A  2-hour class on Tuesdays combining presentations, guided meditations, experiential exercises and group discussion.
+    A follow up one-hour practice session each Thursday including a short guided meditation, a brief practice encouragement, and time for participants to ask questions and share about their practice experience since the last class. These auxiliary sessions are offered to support participants in deepening learnings from the previous class.
+
+The focus for each week of classes and practice sessions will be as follows:
+    Week One ─ Being in the Present Moment with Whatever Arises 
+    Week Two ─ Recognizing and Interrupting Reactive Habit Patterns
+    Week Three ─ Relating to Difficulties with Compassion and Lovingkindness
+    Week Four ─ Strategies for Taking Care of Ourselves
+
+During this class series, you will discover how it is possible for you to:
+    Be released from the limiting storylines that you and others have told you about yourself
+    Learn new skills that help untangle painful thoughts and self-criticism
+    Build the capacity to be with emotional pain and distress with strength and courage
+    Cultivate self-confidence and self-esteem as you practice using re-sculpting tools
+    Learn to offer compassion and acceptance to yourself and others
+    Cultivate a natural experience of peace, ease, and well-being 
+    Experience deeper authentic connection, presence, and vitality
+    Feel better and have a more satisfying relationship to life
+
+Appropriate for those who are new to meditation and for those who are experienced meditators.
+
+Tuesday Classes 5:30–7:30 pm PT
+Thursday Practice   Sessions 5:30–6:30 pm PT
+
+Week 1
+Oct 22 
+Oct 24 
+
+Week 2
+Oct 29 
+Oct 31 
+
+Week 3
+Nov 5 
+Nov 7 
+
+Week 4
+Nov 12 
+
+You are warmly invited to try the TDA Practice Group once you have completed this course. It's an optional group that includes ongoing teaching to deepen TDA practice and community, meeting biweekly every Tuesday from January 7 through March 18. Practice Group information and registration are forthcoming.
+
+Teacher 1:
+Jisho Lisa Hoffman
+
+Teacher 1 email:
+lisa@lisahoffman.net
+
+Teacher 1 Bio:
+on file
+
+Teacher 2:
+Paul Irving
+
+Teacher 2 email:
+paulirv@sonic.net
+
+Teacher 2 Bio:
+on file
+
+General ticket price:
+275
+
+SFZC Member Ticket Price:
+247.50
+
+Sliding Scale 1:
+165
+
+Sliding Scale 2:
+none
+
+———————————————
+This task was submitted through 2024 AsanaNet: Upcoming Event at SFZC
+https://form.asana.com/?k=KeieUM_mzF0IWIDmwSpdJg&d=6982134569842",2025 Online Programs Marketing,,,,,,,,,"Tuesday, Oct 22, 2024",,,,Online Program,Four-week class,Jisho Lisa Hoffman,Psychology & Spirituality,42210-04-19: Online Workshops and Classes,Tuesday Classes 5:30–7:30 pm PT | Thursday Practice Sessions 5:30–6:30 pm PT,"Tuesday, Nov 12, 2024",Paul Irving,Brendan Crowe,,lisa@lisahoffman.net,paulirv@sonic.net,https://docs.google.com/document/d/1enS2rAZuNFjpp14-W74sa5JPOpLsz0M44-ioHv2vaW0/edit?usp=drive_link,"We offer this course regularly because of high demand.
+
+Suzuki Roshi said, “To be you is enough, you know…”
+
+Weaving together mindfulness and contemporary psychology, this course explores how to best take care of ourselves by relating to depression and anxiety with compassion and understanding. Our purpose is for participants to learn and practice how to interrupt conditioning that hinder feeling better and noticing what is good in our lives. We encourage each student through skillful means to cultivate common sense practices that help us manage, and prevent, chronic feelings of unhappiness. By focusing on direct experience, we learn to see and disrupt habitual mind patterns that lead to depression and anxiety. 
+
+Each week will consist of two sessions:
+A  2-hour class on Tuesdays combining presentations, guided meditations, experiential exercises and group discussion.
+A follow up one-hour practice session each Thursday including a short guided meditation, a brief practice encouragement, and time for participants to ask questions and share about their practice experience since the last class. These auxiliary sessions are offered to support participants in deepening learnings from the previous class.
+
+The focus for each week of classes and practice sessions will be as follows:
+Week One ─ Being in the Present Moment with Whatever Arises 
+Week Two ─ Recognizing and Interrupting Reactive Habit Patterns
+Week Three ─ Relating to Difficulties with Compassion and Lovingkindness
+Week Four ─ Strategies for Taking Care of Ourselves
+During this class series, you will discover how it is possible for you to:
+Be released from the limiting storylines that you and others have told you about yourself
+
+Learn new skills that help untangle painful thoughts and self-criticism
+Build the capacity to be with emotional pain and distress with strength and courage
+
+Cultivate self-confidence and self-esteem as you practice using re-sculpting tools
+
+Learn to offer compassion and acceptance to yourself and others
+Cultivate a natural experience of peace, ease, and well-being 
+
+Experience deeper authentic connection, presence, and vitality
+
+Feel better and have a more satisfying relationship to life
+
+Appropriate for those who are new to meditation and for those who are experienced meditators.
+
+Tuesday Classes 5:30–7:30 pm PT
+Thursday Practice Sessions 5:30–6:30 pm PT
+
+Week 1
+Oct 22 
+Oct 24 
+
+Week 2
+Oct 29 
+Oct 31 
+
+Week 3
+Nov 5 
+Nov 7 
+
+Week 4
+Nov 12 
+
+You are warmly invited to try the TDA Practice Group once you have completed this course. It's an optional group that includes ongoing teaching to deepen TDA practice and community, meeting biweekly every Tuesday from January 7 through March 18. Practice Group information and registration are forthcoming.",https://giving.sfzc.org/event/10-22-24-transforming-depression-and-anxiety/e605309,,,,,,,,,https://www.dropbox.com/scl/fi/ywpcth3jqb804813v8988/Transforming-Anxiety_10-22-2024_L-David-Del-Francia_1200x600_png.png?rlkey=t8fduc7udqj5g8cj5s71z0n39&st=m9ik2ncl&dl=0,on file,on file,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1207818430847297,2024-07-15,2024-07-23,2024-07-23,CMS/Drupal: Google Tag Manager not working,Group/Recently assigned,Greg Bilke,webcoordinator@sfzc.org,,,,,WebOps: Q/A-Support and Tasks,,,,,,,,,,,,,,,,,,,,,,,,,,,,"SFZC WebOps, Kalamuna",CMS/Drupal,OpsMan,Moderatley Complex,,,,Q/A - Support,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1207494096067155,2024-06-05,2024-07-03,2024-08-13,Edit Job Opportunities page in web_Development Manager,Closed tasks,Jaime Braun Costa,webeditor@sfzc.org,,,,"Dana→ Here is the final text for the new Development Manager position. Cat, can you create the final doc and share it with Shoko and Ty/Cecilia?
+Cecilia and Ty, once Cat sends you the doc this will need to go up on the website, then into next week's Sangha News, followed by a round in the socials. We just did this for the AP/AR Manager a few months ago, so please just use that workflow. You can run the tout by me for input. As far as image, any neutral SFZC one is fine.
+
+https://docs.google.com/document/d/1Vt6tFzAgwA67PdUZ6M4-9RfYCM-lndtD/edit",Web Edit Requests,,,,,,,,,,,,,,,,,,,,,,Complete,,,,,,,,,,https://www.sfzc.org/about/contact-san-francisco-zen-center/opportunities-jobs,Cecilia Miglioli,cecilia.miglioli@sfzc.org,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1204209774828790,2023-03-18,2023-03-18,2023-03-18,Google Tag Manager: Add Facebook Pixel tag,,,,,,Development,Add Facebook pixel to Google Tag Manager (GTM) with basic Pageview/All Pages configuration.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1204209505912658,2023-03-18,2023-03-18,2023-03-18,"Google Tag Manager/Google Analytics: Create Google Analytics 4 property, add to GTM
+",,,,,,"Drupal CMS,analytics","GA: Upgrade to a Google Analytics 4 property
+https://support.google.com/analytics/answer/9744165
+
+GTM: Google Analytics 4 tags
+https://support.google.com/tagmanager/answer/9442095?hl=en&ref_topic=6333310
+
+
+",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1204209505578423,2023-03-18,2023-03-18,2023-03-18,CMS/Drupal - sfzc.org: Deploy Cookiebot via Google Tag Manager to LIVE,,,,,,,,,"CMS/Drupal, WordPress: Cookiebot - Consent Management Platform",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1204209505089617,2023-03-18,2023-03-18,2023-03-18,"Google Analytics: Update to GA4? (sfzc.org, blogs.sfzc.org)",,,,,,,"GA4 property: www.sfzc.org (255401871)
+
+How to Upgrade to Google Analytics 4 (GA4)?
+https://www.analyticsmania.com/post/upgrade-to-google-analytics-4/
+
+
+----------------------------------------
+
+
+Email from Google 
+
+Universal Analyr properties will stop processing data on July 1, 2023. To maximize historical data and to ensure that Google Analytics 4 (GA4) meets your specific needs, [we recommend you make the switch to Google Analytics 4 now](https://notifications.google.com/g/p/APdRdFy1rA7CFAbz8t9WOWmq06q-xhB8m-XR_VDBUvRr-ADfbCoexSBQMrrmlLReIE-DG3fdCz-oSCb8CNvexBEOQC_0OqUv2jScnfnF3PKG0nJdRHJKxqmwineR8Ms0_qO0mq302hSPKOuPd6n6TbNcEq-hDCDEsN1kfCqyCoYUlgF_OYvpa3wmAYfsBpzjuQP00weUaNluZBZRaqJuk6mYisRWMRR3bxH8gzVMR_yl8tjBsqDnDPOfx9gqFI0iNxA0JVY8RiP0qIMMqnlrRygrwISupR0DT8nL44JRC1UNOGRlc5qpyknYQDuFR91xxAkoCU4vZf51xU23gGLvMiRg2aAb). This will give you the opportunity to customize the setup including using the latest site tag.
+
+For any customer who does not set up a GA4 property with basic settings, starting in March, we will configure one with a few basic settings consistent with the existing Universal Analytics property; this includes certain conversion events, Google Ads links, and existing website tags.
+
+For Universal Analytics customers whose websites are tagged with gtag.js or analytics.js (including through tag management systems like Google Tag Manager), we will create a connected site tag that will reuse existing tags when possible to send traffic to the new GA4 property. If you do not wish to have a GA4 property created and configured based on your Universal Analytics property and existing tags, [you may opt-out](https://notifications.google.com/g/p/APdRdFzyUATSJKv8XKeOFqjt834i8aoV0KJPIBY35d4NKDPTdG57L_5KQ8Udteb7Vd24TComaKppWzMvH3quJbNqyEHpLZEfUB7s_NpACwAX40I5BJCavLVqBm6-RVIcotQxDbIinUlbB5fT3DPW-YFF5CYEjgyUvVgJhQFpAu9Fq52n7gA3r9qkpycJJpO-qVbLD2607ndcwAo-TPMe7jAgatPd4ba7wch0d1yTN4noP35XAj2DdAqzNkZA-2v_it5AOwfs-S0d2Pcc2Wu5nwvkJ2-4Bmi8_5HCgtcdLBg-XHm04vJvtlX9Jfo).",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1203395896583357,2023-02-07,2023-02-28,2023-10-20,"Google Analytics: Update to GA4? (sfzc.org, blogs.sfzc.org)",Done,,,,,,"GA4 property: www.sfzc.org (255401871)
+
+How to Upgrade to Google Analytics 4 (GA4)?
+https://www.analyticsmania.com/post/upgrade-to-google-analytics-4/
+
+
+----------------------------------------
+
+
+Email from Google 
+
+Universal Analyr properties will stop processing data on July 1, 2023. To maximize historical data and to ensure that Google Analytics 4 (GA4) meets your specific needs, [we recommend you make the switch to Google Analytics 4 now](https://notifications.google.com/g/p/APdRdFy1rA7CFAbz8t9WOWmq06q-xhB8m-XR_VDBUvRr-ADfbCoexSBQMrrmlLReIE-DG3fdCz-oSCb8CNvexBEOQC_0OqUv2jScnfnF3PKG0nJdRHJKxqmwineR8Ms0_qO0mq302hSPKOuPd6n6TbNcEq-hDCDEsN1kfCqyCoYUlgF_OYvpa3wmAYfsBpzjuQP00weUaNluZBZRaqJuk6mYisRWMRR3bxH8gzVMR_yl8tjBsqDnDPOfx9gqFI0iNxA0JVY8RiP0qIMMqnlrRygrwISupR0DT8nL44JRC1UNOGRlc5qpyknYQDuFR91xxAkoCU4vZf51xU23gGLvMiRg2aAb). This will give you the opportunity to customize the setup including using the latest site tag.
+
+For any customer who does not set up a GA4 property with basic settings, starting in March, we will configure one with a few basic settings consistent with the existing Universal Analytics property; this includes certain conversion events, Google Ads links, and existing website tags.
+
+For Universal Analytics customers whose websites are tagged with gtag.js or analytics.js (including through tag management systems like Google Tag Manager), we will create a connected site tag that will reuse existing tags when possible to send traffic to the new GA4 property. If you do not wish to have a GA4 property created and configured based on your Universal Analytics property and existing tags, [you may opt-out](https://notifications.google.com/g/p/APdRdFzyUATSJKv8XKeOFqjt834i8aoV0KJPIBY35d4NKDPTdG57L_5KQ8Udteb7Vd24TComaKppWzMvH3quJbNqyEHpLZEfUB7s_NpACwAX40I5BJCavLVqBm6-RVIcotQxDbIinUlbB5fT3DPW-YFF5CYEjgyUvVgJhQFpAu9Fq52n7gA3r9qkpycJJpO-qVbLD2607ndcwAo-TPMe7jAgatPd4ba7wch0d1yTN4noP35XAj2DdAqzNkZA-2v_it5AOwfs-S0d2Pcc2Wu5nwvkJ2-4Bmi8_5HCgtcdLBg-XHm04vJvtlX9Jfo).",WebOps: Projects - OLD,,,,,,,,,,Deferred,95%,WebOps,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1201307815096338,2021-11-01,2022-04-19,2022-04-19,CMS/Drupal - sfzc.org: Deploy Cookiebot via Google Tag Manager to LIVE,,,,,,,,,"CMS/Drupal, WordPress: Cookiebot - Consent Management Platform",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1199118691638557,2020-11-05,2020-11-19,2020-11-19,"Google Tag Manager/Google Analytics: Create Google Analytics 4 property, add to GTM
+",Done,,,,,"Drupal CMS,analytics","GA: Upgrade to a Google Analytics 4 property
+https://support.google.com/analytics/answer/9744165
+
+GTM: Google Analytics 4 tags
+https://support.google.com/tagmanager/answer/9442095?hl=en&ref_topic=6333310
+
+
+",WebOps: Projects - OLD,,,,,,,,,,In Progress,25%,WebOps,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1160845896757710,2020-02-06,2020-01-31,2020-02-06,Google Tag Manager: Add Facebook Pixel tag,Recently assigned,Greg Bilke,webcoordinator@sfzc.org,,2020-02-10,,Add Facebook pixel to Google Tag Manager (GTM) with basic Pageview/All Pages configuration.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1159723031065537,2020-01-30,2020-01-31,2023-03-25,Google Tag Manager: Add Facebook Pixel tag,Done/Recently assigned,Greg Bilke,webcoordinator@sfzc.org,,2020-01-31,Development,Add Facebook pixel to Google Tag Manager (GTM) with basic Pageview/All Pages configuration.,WebOps: Projects - OLD,,,,,,,,,,In Progress,100%,Comms,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1147379865229527,2019-10-30,,2023-03-26,Create New CC Deposit Form in FormAssmebly,Done,,,,,,"Hi Mei,
+
+Keith is helping with the new CC Guest Student Deposit Form <https://www.tfaforms.com/4770778>. It is not working at this point but this is how it will look. What do you think?
+
+Ideally, you'll be able to send it out pre-filled with the student's name and email address.
+
+Thanks,
+Mike",CC Guest Student Deposit Form Changes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1126718142944709,2019-06-11,,2019-06-13,Drupal: Google Tag Manager project,Submitted/Proposed,,,,,Drupal CMS,,Web: Projects Overview,,,,,,,"GB work done for now - Pending review from CIO, VP, Comms",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1125830268056361,2019-06-04,2019-06-26,2022-07-01,Text of Spiceworks Request (1038 Google Analytics on Fonteva Checkout),(no section),,,,,,"Submitted by Elliot Charney on Monday, May 6th 2019 at 2:38 pm
+Is it possible to install our Google Analytics on our Fonteva checkout pages? We're paying for advertisements for online courses but are unable to track their effectiveness.
+https://on.spiceworks.com/tickets/open/1038/activity",Google Analytics on Fonteva Checkout,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1124045559605125,2019-05-21,2019-12-20,2019-12-20,Install Google Tag Manager,Jira tasks/backlog,,,,,,"Install Google Analytics via Google Tag Manager
+
+GA Tracking ID:  UA-1720237-1
+GTM Container ID: GTM-TGH83XK
+
+
+
+┆Attachments: https://kalamuna.atlassian.net/secure/attachment/41826/gtm+id.png
+",CMS Website Development Backlog,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1118938590921064,2019-04-16,,2019-05-07,Pixel for Facebook,,Dana Velden,dana.velden@sfzc.org,,,,"A piece of code for your website that lets you measure, optimize and build audiences for your ad campaigns. Should we/can we start to incorporate Pixel on FB? ",,,,,,,Medium,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+848238888852002,2018-10-02,,2018-11-28,Digital Asset Management,Ready to be prioritized,,,,,,"The details you add below will help O&D understand the scope and impact of the proposed request. 
+Please also fill in the custom questions above.
+
+    Goal for the project (when will we know we’re done?):
+    Identify all stakeholders in the project:
+    How does this proposal further our Diversity, Equity, Inclusivity and Accessibility (DEIA) goals and intentions? 
+    Potential impact on other areas (positive or negative):
+    An estimate of staff resources needed to complete (please enter estimate of time in the field provided above):
+    Identify project’s results for constituents:
+    Identify project’s results for SFZC:
+    Do you have approval from your department head?
+
+",Technology Projects Backlog,,,,,,,,Communications,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+841714795244657,2018-09-27,,2024-01-31,Integrate Google Tag Manager,Jira tasks/backlog,,,,,,"Integrate Google Tag Manager in order to track analytics.
+
+",CMS Website Development Backlog,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+735412190953854,2018-07-06,2018-07-27,2018-11-28,HotJar Script,Jira tasks/backlog/Recently assigned,Greg Bilke,webcoordinator@sfzc.org,,,,"Hotjar script to go on the :link:http://SFZC.org SFZC.org :link: homepage:
+
+【 code  】
+<!-- Hotjar Tracking Code for https://sfzc.org -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:940161,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+【 end code 】
+
+Instructions for how to place the snippet, including using Google Tag Manager, can be found here: :link:https://help.hotjar.com/hc/en-us/articles/115009499088-The-Hotjar-Tracking-Code https://help.hotjar.com/hc/en-us/articles/115009499088-The-Hotjar-Tracking-Code :link:
+
+",CMS Website Development Backlog,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+475844682876417,2017-11-09,2017-12-20,2017-12-20,Google Tag Manager implementation consultant: Write brief for Mike,Today,Greg Bilke,webcoordinator@sfzc.org,,2017-11-17,,,,Install Google Tag Manager/add to SFZC.org main site pages,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+475844682876398,2017-11-09,2017-12-20,2017-12-20,Google Tag Manager: Contractor brief to Mike,Development/Upcoming,Greg Bilke,webcoordinator@sfzc.org,,2017-11-20,,,Web Coordinator Tasks,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+473111411213473,2017-11-07,,2018-09-28,Salesforce documentation (create training materials),,,,,2017-11-21,,First step was created i.e. we now have a Salesforce basics training PPT deck which we used to train the Tanto's.  This will be expanded to incorporate short videos that continue to explain how to work in Salesforce. ,,,,,,In progress,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+462873222564173,2017-10-25,2019-06-13,2023-07-07,Install Google Tag Manager/add to SFZC.org main site pages,Completed Archive,,,,,"Maintenance,Admin",,Web: Projects Overview,,,,30%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+390260489777500,2017-07-20,2018-05-01,2018-05-01,Research Google Tag Manager,Admin,,,,,,,Web Coordinator Tasks,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -1,0 +1,190 @@
+﻿Task ID,Created At,Completed At,Last Modified,Name,Section/Column,Assignee,Assignee Email,Start Date,Due Date,Tags,Notes,Projects,Parent task,Blocked By (Dependencies),Blocking (Dependencies),Priority,Start Date,Status,Percent Done,Requested by,Location,Format,Teacher 1,Category,Accounting Designation,Start/End Times,Registration Cutoff,Teacher 2,Submitted By,Teacher 3,MOU Status,Teacher Compensation,Event Description,Registration Info (SOE),Webpage URL (SOE),Worked on by,Type,Requested by,Complexity,Class,Phase (Comms),Blocked By (Dependencies),Blocking (Dependencies),Testing Status,Technical Impact Assessment,Security Impact Assessment,Compliance Requirements,Resource Estimation,Rollback Plan,Testing Requirements,Type,Complexity,Priority,Change Status,Resource Estimation,Cost Estimation,Stakeholder Communication,WebOps - Priority,WebOps - Status
+1210166897263834,2025-05-05,,2025-05-14,DTA-GTM: Updates  - troubleshooting,Untitled section,,,,,1:1,"Reviews
+
+250513
+
+    Will pick up this week
+",WebOps: Q/A-Support and Tasks,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,In Progress
+1210063582486274,2025-04-24,,2025-05-01,Drupal/GTM → GA: 404 issues,Backlog/Recently assigned,Greg Bilke,webcoordinator@sfzc.org,,,EyesOn,"Asana task: https://app.asana.com/1/6982134569842/project/1209395002920108/task/1210040565432264
+
+Change Description
+
+Modified Google Tag Manager (GTM-TGH83XK) configuration to only track successful page loads by setting Response Status conditions to only include ""Success (200)"" status codes. This change prevents Google Analytics from tracking 404 error pages, which was inflating error statistics.
+
+Safety Considerations
+
+    Low-risk configuration change that doesn't affect site functionality
+    Only modifies analytics data collection, not user-facing content
+    No impact on page loading times or server performance
+
+Monitoring Plan
+
+    Daily review of Google Analytics reports for 7 days post-change
+    Compare to baseline report (SFZC_404_Baseline_Report_Pre-GTM-Fix_April2025.png)
+    Verify 404 error percentage drops from ~82% to ~13-14%
+",WebOps: *Change Management/Tracking*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,n/a,n/a,In Progress,"'- No impact on site functionality or performance
+- Will reduce the volume of data being processed by Google Analytics
+- Improves accuracy of analytics reporting
+- No changes to server-side code or Drupal core","'- No security impact
+- Change only affects what data is sent to Google Analytics
+- No modification to authentication or authorization systems
+- No new external dependencies or connections","'- No special compliance requirements
+- Change aligns with analytics best practices
+- Reduces unnecessary data collection, which aligns with data minimization principles
+- No personal or sensitive data handling changes","'- Implementation time: 10 minutes
+- Testing and verification: 1 hour initially, plus 10 minutes daily for 7 days
+- No additional server resources required
+- No additional licensing costs","If issues occur, rollback process is simple:
+
+Return to GTM settings (Configuration > System > Google Tag Manager)
+Uncheck ""Success (200)"" or remove all response status conditions
+Save configuration
+
+
+Expected rollback time: Less than 5 minutes
+No database or filesystem backups needed","'- Monitor Google Analytics Real-Time reports for 30 minutes after implementation
+- Verify page views are still being tracked for normal site usage
+- Compare total pageview counts before and after the change
+- Create test 404 errors and confirm they are not tracked in GA",CMS/Drupal,Moderately Complex,Medium/Normal,Testing,8,0.00,IT/OpsMan update,,
+1209623424692857,2025-03-10,,2025-04-16,SFZC.org/CMS/Google Tag module: Cookiebot/Gate config issues,Group,,,,,,"REVIEWS
+
+250325
+
+    Research GT issues:
+        COOKIEBOT
+            Not fully configured to wrap tags based off of the Cookiebot banner
+        GATE
+            Not configured
+
+
+----------------------------------------
+
+ASSETS
+
+
+
+Checking on Cookiebot
+
+Dan Belsky
+Mon, Mar 10, 12:54 PM (7 days ago)
+
+
+
+
+to me
+
+Hey Greg,
+
+Happy Monday. In an effort to get our FB ads tracking working correctly, I've been working with a small firm, Community Boost, outsourced to us by Classy to assist (at no extra cost) with making sure our FB Ads Manager (FB Pixel) and Classy Conversions API are setup and tracking correctly. It's taken a few weeks but has gone well.
+
+In the course of this work, last week on Friday, Community Boost saw something they thought I should bring up with you. They mentioned that our GTM is not fully configured to wrap tags based off of the Cookiebot banner...they mentioned something about our gate not being configured. I've attached some screenshots from our meeting that might be useful for reference. 
+
+I'm not totally sure about the technical details beyond this, but wanted to mention it to you. I don't think this is a super-high priority since we've been operating with our current configuration for some time now. Just wanted to put this on your radar.
+
+Thanks,
+Dan
+
+https://app.asana.com/app/asana/-/get_asset?asset_id=1209707051641051
+
+
+
+https://app.asana.com/app/asana/-/get_asset?asset_id=1209707051641053
+
+ ",WebOps: Q/A-Support and Tasks,,,,,,,,,,,,,,,,,,,,,,,,"SFZC WebOps, SFZC OpsMan",CMS/Drupal,OpsMan,Moderatley Complex,Task,,,,,,,,,,,,,,,,,,Medium,On Deck
+1208706393148630,2024-11-07,,2025-04-17,"Zen and Modern Leadership, ZMC 5/29-6/1",May,Anna Malo,anna.malo@sfzc.org,2025-05-29,2025-06-01,,"Name of person submitting event:
+Anna Malo
+
+Event Title:
+Zen and Modern Leadership
+
+Choose Category for the event:
+Mindful Living
+
+Format for this event:
+3-night retreat 
+
+Event Venue:
+Tassajara - Large Retreat Hall
+
+Account Designation:
+42200-04-02 Hospitality: Onsite Teaching ZMC
+
+Start Date:
+Thursday, May 29, 2025
+
+End Date:
+Sunday, June 1, 2025
+
+Start/End Times:
+4pm-11am
+
+Event Description:
+Where personal growth in leaders creates empowering environments
+
+In this immersive leadership retreat, we work toward deeper connection to self and others, using the Zen centric Leadership Embodiment management training program. Harnessing Zen, martial arts, mindfulness, and neuroscience research, learn to quickly and gracefully recover from stress, expand your capacity to stay poised and creative during conflict, and cultivate more comfort in difficult conversations. Discover how to leverage your body within 10 seconds to 2 minutes to shift from stress to strength+sensitivity, fostering ease, trust, creativity, and flourishing. Gain deep awareness and practical tools that transform how you show up and connect under pressure. This is a journey towards effective and purposeful leadership that cultivates an environment where everyone can thrive.
+
+
+Teacher 1:
+Sozan Michael McCord
+
+Teacher 2:
+Tierney Powers
+
+Teacher 2 Bio:
+Tierney Powers is an Integral Executive Coach and facilitator with over 15 years of experience in personal development. With a professional background in tech, spanning Go-to-Market (GTM) Strategy, Customer Experience, Sales, and SaaS solution design, she brings a wealth of expertise from creating with stakeholders and leading teams in these corporate settings, as well passion from her own leadership journey.
+
+Tierney's focal point is playfully nurturing leadership capabilities and facilitating practical, deep development. Her clientele includes C-level executives whom she coaches with this keen focus on fostering leadership skillfulness, with an emphasis on self awareness and creativity under stress. Proficient in methodologies like Conscious Leadership and neuroscience-based Leadership Embodiment, she has conducted extensive work both domestically and internationally, inspiring teams at institutions such as Stanford University and within the NBA, and actively seeks out opportunities to collaborate with leaders in the neuro-diverse and BIPOC communities.
+
+Tierney's Integral approach and training, embraces whole person health: mindset, heart, relationship, and body (somatic). Armed with a Master's degree in Exercise Science, Tierney emphasizes the somatic aspect, enabling many executives to explore and unleash potential by tapping into the body. Her mission revolves around empowering individuals to take charge of their lives, relishing the journey toward becoming the finest version of themselves both personally and professionally.
+
+500:
+16
+
+General ticket price:
+$1,500
+
+SFZC Member Ticket Price:
+$1,275
+
+———————————————
+This task was submitted through 2024 AsanaNet: Upcoming Event at SFZC
+https://form.asana.com/?k=KeieUM_mzF0IWIDmwSpdJg&d=6982134569842",Tassajara 2025 ,,,,,"Thursday, May 29, 2025",,,,Tassajara - Large Retreat Hall,3-night retreat ,Sozan Michael McCord,Mindful Living,42200-04-02 Hospitality: Onsite Teaching ZMC,4pm-11am,"Sunday, June 1, 2025",Tierney Powers,Anna Malo,Tiphani Palmer,MOU Sent,"Payment is 50% of the gross revenue. If two teachers co-lead an event, the teacher payment is divided 25/25. Payment will be remitted within four weeks after the event finishes. ACH payments are available.  ","Where personal growth in leaders creates empowering environments
+
+In this immersive leadership retreat, we work toward deeper connection to self and others, using the Zen centric Leadership Embodiment management training program. Harnessing Zen, martial arts, mindfulness, and neuroscience research, learn to quickly and gracefully recover from stress, expand your capacity to stay poised and creative during conflict, and cultivate more comfort in difficult conversations. Discover how to leverage your body within 10 seconds to 2 minutes to shift from stress to strength+sensitivity, fostering ease, trust, creativity, and flourishing. Gain deep awareness and practical tools that transform how you show up and connect under pressure. This is a journey towards effective and purposeful leadership that cultivates an environment where everyone can thrive.
+",https://secure.webrez.com/hotel/764/?date_from=20250529&date_to=20250601,https://www.sfzc.org/calendar/events/tassajara/zen-and-modern-leadership-zmc-529-61-0,,,,,,Live,,,,,,,,,,,,,,,,,,
+1208581868526245,2024-10-18,,2024-10-18,Check GTM,,,,,,,,,CMS/Drupal - Google Tag Manager: GTM/GA tags not present,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1208581868526234,2024-10-18,2024-11-12,2024-11-12,CMS/Drupal - Google Tag Manager: GTM/GA tags not present,Group/Recently assigned,Greg Bilke,webcoordinator@sfzc.org,,,,,WebOps: Q/A-Support and Tasks,,,,,,,,,,,,,,,,,,,,,,,,"SFZC WebOps, Kalamuna",CMS/Drupal,OpsMan,Moderatley Complex,Q/A - Support,,,,,,,,,,,,,,,,,,,
+1204209774832580,2023-03-18,2023-03-18,2023-03-18,Install Facebook pixel in GTM,,,,,,,,,Google Tag Manager: Add Facebook Pixel tag,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1204209774828790,2023-03-18,2023-03-18,2023-03-18,Google Tag Manager: Add Facebook Pixel tag,,,,,,Development,Add Facebook pixel to Google Tag Manager (GTM) with basic Pageview/All Pages configuration.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1204209505912658,2023-03-18,2023-03-18,2023-03-18,"Google Tag Manager/Google Analytics: Create Google Analytics 4 property, add to GTM
+",,,,,,"Drupal CMS,analytics","GA: Upgrade to a Google Analytics 4 property
+https://support.google.com/analytics/answer/9744165
+
+GTM: Google Analytics 4 tags
+https://support.google.com/tagmanager/answer/9442095?hl=en&ref_topic=6333310
+
+
+",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1199118691638557,2020-11-05,2020-11-19,2020-11-19,"Google Tag Manager/Google Analytics: Create Google Analytics 4 property, add to GTM
+",Done,,,,,"Drupal CMS,analytics","GA: Upgrade to a Google Analytics 4 property
+https://support.google.com/analytics/answer/9744165
+
+GTM: Google Analytics 4 tags
+https://support.google.com/tagmanager/answer/9442095?hl=en&ref_topic=6333310
+
+
+",WebOps: Projects - OLD,,,,,,In Progress,25%,WebOps,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1160845898540613,2020-02-06,2020-01-31,2020-02-06,Install Facebook pixel in GTM,,,,,,,,,Google Tag Manager: Add Facebook Pixel tag,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1160845896757710,2020-02-06,2020-01-31,2020-02-06,Google Tag Manager: Add Facebook Pixel tag,Recently assigned,Greg Bilke,webcoordinator@sfzc.org,,2020-02-10,,Add Facebook pixel to Google Tag Manager (GTM) with basic Pageview/All Pages configuration.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1159723031065540,2020-01-30,2020-01-31,2020-01-31,Install Facebook pixel in GTM,,,,,,,,,Google Tag Manager: Add Facebook Pixel tag,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1159723031065537,2020-01-30,2020-01-31,2023-03-25,Google Tag Manager: Add Facebook Pixel tag,Done/Recently assigned,Greg Bilke,webcoordinator@sfzc.org,,2020-01-31,Development,Add Facebook pixel to Google Tag Manager (GTM) with basic Pageview/All Pages configuration.,WebOps: Projects - OLD,,,,,,In Progress,100%,Comms,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1124045559605125,2019-05-21,2019-12-20,2019-12-20,Install Google Tag Manager,Jira tasks/backlog,,,,,,"Install Google Analytics via Google Tag Manager
+
+GA Tracking ID:  UA-1720237-1
+GTM Container ID: GTM-TGH83XK
+
+
+
+┆Attachments: https://kalamuna.atlassian.net/secure/attachment/41826/gtm+id.png
+",CMS Website Development Backlog,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1118938590921064,2019-04-16,,2019-05-07,Pixel for Facebook,,Dana Velden,dana.velden@sfzc.org,,,,"A piece of code for your website that lets you measure, optimize and build audiences for your ad campaigns. Should we/can we start to incorporate Pixel on FB? ",,,,,Medium,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

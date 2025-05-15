@@ -1,4 +1,37 @@
 
+# 🧠 Project Memory: GTM Tracking Reset for SFZC.org
+**Filename:** `2505-dta-gtm-updates-troubleshooting.md`  
+**Project Code:** 2505-DTA-GTM-UPDATES  
+**Last Updated:** 2025-05-14  
+
+---
+
+## 🔁 Reset Overview (May 2025)
+
+This is a formal reset of the Google Tag Manager (GTM) tracking implementation on SFZC.org. The system was previously modified by outside contractors, but:
+
+- The names of those contractors and their goals are **unknown**
+- The current GTM container has **undocumented tags and logic**
+- There is no clear record of what tracking was expected or what is actively working
+
+### 🎯 Reset Goals
+
+- Rebuild visibility and documentation
+- Confirm what’s firing and whether it's compliant
+- Clarify roles and decision authority
+- Implement GA4, Microsoft Clarity, and consent compliance from a known baseline
+
+### 👥 Roles & Context
+
+| Role                     | Name               | Notes |
+|--------------------------|--------------------|-------|
+| Lead Implementer         | Greg Bilke         | New to GTM; rebuilding from unknown state |
+| Analytics Sponsor        | Dan Belsky         | IT Director; worked with prior contractors |
+| Contractor History       | Unknown            | Names, implementations, and intent unclear |
+
+---
+
+
 # 🧠 Project Memory: GTM Tracking Updates on SFZC.org  
 **Filename:** `2505-dta-gtm-updates-troubleshooting.md`  
 **Project Code:** 2505-DTA-GTM-UPDATES  

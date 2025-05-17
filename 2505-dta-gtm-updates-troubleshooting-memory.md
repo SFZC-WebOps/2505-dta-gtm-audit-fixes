@@ -145,6 +145,47 @@ All current tags lack consent enforcement.
 
 ---
 
+### 🟥 Server-Side Container Discovery: `GTM-M7BMM8ZQ`
+
+**Discovered:** 2025-05-17  
+**Container Name:** Server Container SFZC  
+**Container ID:** GTM-M7BMM8ZQ  
+**Type:** Server-Side GTM  
+**Last Edited By:** belen.molinari@templeadv.com  
+**Live Version:** Version 2 (published 10 months ago)  
+**Access Mode:** View-only  
+
+#### 🔎 Summary
+
+This container appears to have been implemented by a past external contractor (Temple Advertising) for the purpose of sending Facebook Conversions API events via server-side GTM. It was previously undocumented in SFZC workflows.
+
+#### 🔍 Audit Findings
+
+- **Tag:** Facebook CAPI (`Conversions API Tag`)
+- **Trigger:** Fires on all events (`ALWAYS`)
+- **Client:** GA4 Server-side (`gaaw_client`)
+- **Consent:** ❌ Not configured (`consentStatus: NOT_SET`)
+- **Redundancy Risk:** Uses the same Facebook Pixel ID (`1062378757459509`) as the Web GTM container
+- **Ownership:** SFZC team has view-only access; no known maintainer
+
+#### ⚠️ Risk Summary
+
+| Risk | Details |
+|------|---------|
+| No consent enforcement | May send CAPI data without user consent |
+| Ownership unknown | No one in the current team owns or can modify the container |
+| Duplicate tracking | Likely sends the same events as Web container `GTM-TGH83XK` |
+| Potential non-compliance | GDPR/CCPA concerns if active and unmanaged |
+
+#### 📋 Recommended Actions
+
+- [ ] Verify DNS or GA4 routing through this container
+- [ ] Confirm with Dan Belsky or Temple Advertising whether it is still in use
+- [ ] Shut down or archive if no longer required
+- [ ] If retained, enforce consent controls and document ownership
+
+---
+
 ## 🚀 Next Publish Plan (Upcoming GTM v16)
 
 ### Goals Before Publish:

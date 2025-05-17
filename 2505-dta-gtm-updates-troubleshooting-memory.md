@@ -23,7 +23,7 @@
 - **Project Name**: GTM Troubleshooting & Audit for SFZC.org
 - **GTM Container ID**: `GTM-TGH83XK`
 - **Audit Initiated**: May 15, 2025
-- **Purpose**: Conduct a comprehensive audit of GTM implementation on SFZC.org, identify misconfigurations, and document recommended improvements to support future implementation clarity.
+- **Purpose**: Conduct a comprehensive audit of GTM implementation on SFZC.org, identify misconfigurations, and document recommended improvements to support future implementation improvements.
 - **Environment**: Pantheon-hosted Drupal 9 site
 - **Workspace**: Web
 - **Export File (v15)**: `GTM-TGH83XK_v15.json`

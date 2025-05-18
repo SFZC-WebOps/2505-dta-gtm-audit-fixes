@@ -88,4 +88,42 @@
 
 ---
 
+## 📌 Interaction Prompts and Workflow Signals
+
+These standardized prompts guide the assistant’s behavior across all GTM tasks and sessions:
+
+| Prompt Type       | User Prompt Example                                                                                                                                                                                                                                                                         | Assistant Behavior                                                                                                                                                   |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 🔐 **Anchor**         | **Reminder:** Always consult `auth.md` as the canonical source of truth for container IDs, tracking IDs, environment ownership, and platform status. For all scoped changes, diagnostics, or implementations, reference the relevant `task-*.md` file. All updates must preserve historical continuity — append, don’t overwrite, unless explicitly directed. | Enforces `auth.md` as the single source of truth. Only makes scoped changes in task files. Never overwrites historical entries unless explicitly directed.             |
+| 🧠 **Request Feedback** | **From your perspective, is there anything I’m overlooking? Are there any risks, dependencies, or better alternatives I should consider?**                                                                                                                                                                                     | Performs deep review of logic, assumptions, and dependencies. Surfaces hidden risks, improvement options, and cross-task implications.                                |
+| 🚩 **Wrap-up + Save**   | **We're at a good stopping point. Please summarize and commit the key verified information from this session to the proper project files. Use `auth.md` for canonical, high-level details and the relevant `task-*.md` file for scoped, implementation-specific updates. Be detailed and structured—include configuration states, command syntax used, version numbers, environment notes (e.g., OS differences), and any validated assumptions.** | Saves a structured session summary to the appropriate files. Ensures canonical information goes in `auth.md` and evolving implementation details stay in task logs. |
+
+> These prompts are consistently interpreted across all GTM task threads. Updates to interpretation should be explicitly discussed and recorded in `auth.md` or task-specific files if needed.
+## 📌 Interaction Prompts and Workflow Signals
+
+These standardized prompts guide the assistant’s behavior across all GTM tasks and sessions:
+
+| Prompt Type       | User Prompt Example                                                                                                                                                                                                                                                                         | Assistant Behavior                                                                                                                                                   |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 🔐 **Anchor**         | Reminder: Always consult `auth.md` as the canonical source of truth for container IDs, tracking IDs, environment ownership, and platform status. For all scoped changes, diagnostics, or implementations, reference the relevant `task-*.md` file. All updates must preserve historical continuity — append, don’t overwrite, unless explicitly directed. | Enforces `auth.md` as the single source of truth. Only makes scoped changes in task files. Never overwrites historical entries unless explicitly directed.             |
+| 🧠 **Request Feedback** | From your perspective, is there anything I’m overlooking? Are there any risks, dependencies, or better alternatives I should consider?                                                                                                                                                                                     | Performs deep review of logic, assumptions, and dependencies. Surfaces hidden risks, improvement options, and cross-task implications.                                |
+| 🚩 **Wrap-up + Save**   | We're at a good stopping point. Please summarize and commit the key verified information from this session to the proper project files. Use `auth.md` for canonical, high-level details and the relevant `task-*.md` file for scoped, implementation-specific updates. Be detailed and structured—include configuration states, command syntax used, version numbers, environment notes (e.g., OS differences), and any validated assumptions. | Saves a structured session summary to the appropriate files. Ensures canonical information goes in `auth.md` and evolving implementation details stay in task logs. |
+
+> These prompts are consistently interpreted across all GTM task threads. Updates to interpretation should be explicitly discussed and recorded in `auth.md` or task-specific files if needed.
+
+
+
+------
+
+
+
+
 > 📎 _This file should be updated anytime container ownership changes, access permissions are granted/revoked, or new containers are discovered._
+
+
+
+---
+
+> 📅 **Last updated:** 2025-05-18  
+> 📎 Added `📌 Interaction Prompts and Workflow Signals` section to formalize assistant behavior for anchoring, feedback requests, and memory-saving actions.  
+> ✍️ Clarified that `auth.md` should only store canonical, high-level project truths, while `task-*.md` files store scoped, evolving implementation work.

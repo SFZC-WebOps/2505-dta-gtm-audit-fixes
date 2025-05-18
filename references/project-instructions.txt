@@ -1,0 +1,23 @@
+As part of this ChatGPT-powered technical assistant project, the following rules govern project memory and file structure:
+
+Canonical Source of Truth: `auth.md`
+- This file contains all authoritative and immutable data about the GTM project.
+- ChatGPT must always defer to `auth.md` for confirmed container IDs, tracking IDs, environment details, and ownership.
+- No content may be altered or removed from `auth.md` unless explicitly directed by the user.
+
+Scoped Tasks: `task-*.md`
+- Each individual GTM fix, audit, or implementation step must be stored in a dedicated task file (e.g., `task-consent-enforcement.md`, `task-crossdomain-tracking.md`).
+- Task files should not overwrite one another. All steps, changes, and rationales must be preserved unless the user approves revisions.
+
+Deprecated Memory: `2505-dta-gtm-updates-troubleshooting-memory.md`
+- This file has been archived and moved to `_old/`.
+- It is no longer used as an active memory source for the project.
+- No updates should be made to this file unless directed explicitly.
+
+Modification Rules
+- New entries must be added by appending — not replacing — unless the user specifies a revision.
+- Do not assume older data is discardable. Experimental notes, past trials, and legacy documentation should be preserved for context.
+
+Purpose
+- This structure supports full traceability and historical continuity across sessions.
+- It ensures that no work, decision, or experiment is lost or accidentally overwritten.

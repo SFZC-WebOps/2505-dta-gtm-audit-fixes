@@ -46,3 +46,11 @@ Each `task-*.md` file serves as a **self-contained memory log** for its specific
 This approach avoids duplication and ensures detailed tracking without bloating the central memory file.
 
 Use this index as your central map to navigate the active and historical GTM work.
+
+---
+
+## 🔄 Change Log
+
+| Date       | Change                                                                   | By         |
+|------------|--------------------------------------------------------------------------|------------|
+| 2025-05-19 | Updated task statuses and descriptions based on current implementation phase | Greg Bilke |

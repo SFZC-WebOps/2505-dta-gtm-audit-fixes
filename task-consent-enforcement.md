@@ -17,6 +17,14 @@ Audit of `GTM-TGH83XK` (v15) revealed:
 
 ---
 
+### 🧑‍💼 Stakeholder Policy Directive
+Per IT Director Dan Belsky:
+- SFZC must comply with GDPR/CCPA requirements.
+- Cookiebot must control all tag firing behavior.
+- No exceptions for marketing or analytics tags.
+
+---
+
 ## 🛠️ Implementation Plan
 
 ### ✅ Step 1: Tag-by-Tag Consent Review
@@ -53,6 +61,8 @@ For each tag:
 ---
 
 ## 🔄 Change Log
-| Date       | Change                        | By         |
-|------------|-------------------------------|------------|
-| 2025-05-18 | Task doc created               | Assistant  |
+
+| Date       | Change                                                                 | By         |
+|------------|------------------------------------------------------------------------|------------|
+| 2025-05-18 | Task doc created                                                        | Assistant  |
+| 2025-05-19 | Added stakeholder directive requiring consent enforcement for all tags | Greg Bilke |

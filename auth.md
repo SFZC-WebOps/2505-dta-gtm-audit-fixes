@@ -35,12 +35,13 @@
 - **Primary Purpose:** Facebook Conversions API server-side forwarding
 
 ### Risk Assessment
-| Risk                  | Details                                                                 |
-|-----------------------|-------------------------------------------------------------------------|
-| ❌ No Consent Control | Sends data without consent settings (non-compliant with GDPR/CCPA)     |
-| ⚠️ Ownership Unknown  | No clear current owner or maintenance path                              |
-| ⚠️ Redundant Tracking | Uses same FB Pixel ID as Web container (1062378757459509)               |
-| ⚠️ No Audit Trail     | Not documented in SFZC workflows prior to 2025-05-17 discovery           |
+
+| Risk                 | Details                                                      |
+| -------------------- | ------------------------------------------------------------ |
+| ❌ No Consent Control | Sends data without consent settings (non-compliant with GDPR/CCPA) |
+| ⚠️ Ownership Unknown  | No clear current owner or maintenance path                   |
+| ⚠️ Redundant Tracking | Uses same FB Pixel ID as Web container (1062378757459509)    |
+| ⚠️ No Audit Trail     | Not documented in SFZC workflows prior to 2025-05-17 discovery |
 
 ---
 
@@ -84,6 +85,9 @@
 ## 🧭 Governance
 - **SFZC WebOps Admin Contact:** _Greg Bilke (greg.bilke@sfzc.org)_
 - **IT Director:** _Dan Belsky_
+  - Delegated GTM setup to external vendors in the past (e.g., Temple Advertising)
+  - Priorities include GA4 data integrity, fundraising tracking, and privacy compliance.
+
 - **Legacy Contractor:** _Temple Advertising (belen.molinari@templeadv.com)_
 
 ---
@@ -124,6 +128,10 @@ These standardized prompts guide the assistant’s behavior across all GTM tasks
 
 ---
 
-> 📅 **Last updated:** 2025-05-18  
-> 📎 Added `📌 Interaction Prompts and Workflow Signals` section to formalize assistant behavior for anchoring, feedback requests, and memory-saving actions.  
-> ✍️ Clarified that `auth.md` should only store canonical, high-level project truths, while `task-*.md` files store scoped, evolving implementation work.
+## 🔄 Change Log
+
+| Date       | Change                                                                                                  | By         |
+|------------|---------------------------------------------------------------------------------------------------------|------------|
+| 2025-05-18 | Added `📌 Interaction Prompts and Workflow Signals` section to formalize assistant behavior              | Assistant  |
+| 2025-05-18 | Clarified that `auth.md` should only store canonical, high-level project truths                         | Assistant  |
+| 2025-05-19 | Updated Risk Assessment table with consent and ownership risks; added stakeholder directives from Dan Belsky | Greg Bilke |

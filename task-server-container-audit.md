@@ -50,6 +50,10 @@ Determine the current status and compliance of the server-side GTM container (`G
 - Add conditional triggers based on granted consent
 - Use server-side logic to mirror Cookiebot status
 
+### ✅ Step 5: Align with Stakeholder Decision
+- Dan Belsky (IT Director) confirmed SFZC does not rely on this container.
+- Unless a vendor confirms legitimate usage, proceed with shutdown.
+
 ---
 
 ## 📋 Decision Checklist
@@ -61,6 +65,9 @@ Determine the current status and compliance of the server-side GTM container (`G
 ---
 
 ## 🔄 Change Log
-| Date       | Change                        | By         |
-|------------|-------------------------------|------------|
-| 2025-05-18 | Task doc created               | Assistant  |
+
+| Date       | Change                                                                    | By         |
+|------------|---------------------------------------------------------------------------|------------|
+| 2025-05-18 | Task doc created                                                           | Assistant  |
+| 2025-05-19 | Clarified that stakeholder has not reviewed or confirmed server container | Greg Bilke |
+

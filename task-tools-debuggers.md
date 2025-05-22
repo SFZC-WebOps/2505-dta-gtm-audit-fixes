@@ -1,7 +1,6 @@
 ---
 # 📌 Task: Tools and Debuggers for GTM Validation
 > 📎 References: `auth.md` (canonical authority for GTM project)
-
 ---
 
 ## 🎯 Goal

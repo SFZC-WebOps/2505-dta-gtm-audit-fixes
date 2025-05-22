@@ -8,11 +8,12 @@
 
 | Task File                          | Description                                                       | Status       |
 |-----------------------------------|-------------------------------------------------------------------|--------------|
-| `task-consent-enforcement.md`     | Enforce Cookiebot consent mode across all GTM tags                | In progress  |
-| `task-crossdomain-tracking.md`    | Configure GA4 linker for session continuity between subdomains    | In progress  |
-| `task-phase-out-ua.md`            | Remove Universal Analytics tags and migrate events to GA4         | In progress  |
+| `task-consent-enforcement.md`     | Enforce Cookiebot consent mode across all GTM tags                | Not Started  |
+| `task-crossdomain-tracking.md`    | Configure GA4 linker for session continuity between subdomains    | Not Started  |
+| `task-phase-out-ua.md`            | Remove Universal Analytics tags and migrate events to GA4         | Not Started |
 | `task-server-container-audit.md`  | Audit server-side container `GTM-M7BMM8ZQ` and resolve ownership  | In review    |
 | `task-tools-debuggers.md`         | Reference tools and debugging methods for validating GTM setup    | Reference    |
+| `task-clarity-implementation.md` | Implement Microsoft Clarity via GTM with consent and test validation | Not Started  |
 
 ---
 

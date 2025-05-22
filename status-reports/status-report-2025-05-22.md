@@ -1,4 +1,3 @@
-
 # ✅ GTM Tracking Reset: Project Status Report  
 **Date:** Thursday, May 22, 2025  
 **Contact:** Greg Bilke, SFZC WebOps  
@@ -29,11 +28,13 @@ This project was initiated to review, document, and correct issues in the GTM tr
 
 | Task File                          | Summary                                                                 | Status       | Next Action                                                                 |
 |-----------------------------------|-------------------------------------------------------------------------|--------------|------------------------------------------------------------------------------|
-| `task-consent-enforcement.md`     | Enforce Cookiebot consent mode across all 24 tags.                      | Not Started  | Add `consentSettings` to all applicable tags; test with Consent Debugger.   |
+| `task-consent-enforcement.md`     | Enforce Cookiebot consent mode across all 24 tags.                      | Planning     | Apply `consentSettings` to one test tag and validate with Consent Debugger. |
 | `task-crossdomain-tracking.md`    | Add GA4 linker config for session continuity across `sfzc.org` domains. | Not Started  | Update GA4 Configuration tag with `linker_domains`; test GA4 session flow.  |
 | `task-phase-out-ua.md`            | Remove `UA-1720237-1` tags and replace with GA4 equivalents.            | Not Started  | Identify all UA tags; replicate events using GA4; test and deprecate UA.    |
 | `task-server-container-audit.md`  | Audit undocumented server-side GTM container `GTM-M7BMM8ZQ`.            | In Review    | Confirm if it is active via DNS or GA4; decide to retain or decommission.   |
-| `task-clarity-implementation.md`  | Implement Microsoft Clarity heatmap tracking via GTM.            | Not Started  | Add Clarity script tag via GTM with consent; validate with GTM + Clarity UI. |
+| `task-clarity-implementation.md`  | Implement Microsoft Clarity heatmap tracking via GTM.                   | Not Started  | Add Clarity script tag via GTM with consent; validate with GTM + Clarity UI.|
+| `task-datalayer-schema.md`        | Document current dataLayer schema for donation, event, and user data.  | Not Started  | Audit existing `dataLayer` pushes on key pages; map all available keys.     |
+| `task-testing-strategy.md`        | Define environment and testing process for safe GTM changes.            | Not Started  | Choose GTM environments or use `URL contains /test-page` trigger structure. |
 | `task-tools-debuggers.md`         | Tool guide for validating tags, consent, and data flow.                 | Reference    | Use for all implementation QA and consent validation steps.                 |
 
 ---
@@ -46,10 +47,9 @@ This project was initiated to review, document, and correct issues in the GTM tr
 | ⚠️ Server Container Unknowns | View-only server-side GTM container (`GTM-M7BMM8ZQ`) is undocumented.            |
 | ⚠️ UA Tags Active            | Deprecated `UA-1720237-1` tags still firing. May distort metrics and audits.    |
 | 🔍 Tag Coverage              | Several tags are not firing on "All Pages" and have incomplete trigger setup.   |
+| ⚠️ Tag Load Order            | No tag sequencing logic in place (e.g., Cookiebot must fire before analytics).  |
+| 🧪 No Testing Plan           | No defined staging, preview, or rollback strategy for published changes.       |
 | 📉 Tooling Dependency        | Validation requires use of Consent Debugger, GA4 DebugView, Omnibug, etc.       |
-
----
-
 
 ---
 
@@ -73,9 +73,19 @@ This project was initiated to review, document, and correct issues in the GTM tr
                           └──────────────────────────┘
 
                           ┌──────────────────────────┐
+                          │task-datalayer-schema     │
+                          └──────────────────────────┘
+
+                          ┌──────────────────────────┐
+                          │task-testing-strategy     │
+                          └──────────────────────────┘
+
+                          ┌──────────────────────────┐
                           │task-tools-debuggers      │ (Reference tool)
                           └──────────────────────────┘
 ```
+
+---
 
 ## ✅ Suggested First Task
 

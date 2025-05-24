@@ -128,26 +128,40 @@ These standardized prompts guide the assistant’s behavior across all GTM tasks
 | 🚩 **Wrap-up + Save**   | **We're at a good stopping point. Please summarize and commit the key verified information from this session to the proper project files. Use `auth.md` for canonical, high-level details and the relevant `task-*.md` file for scoped, implementation-specific updates. Be detailed and structured—include configuration states, command syntax used, version numbers, environment notes (e.g., OS differences), and any validated assumptions.** | Saves a structured session summary to the appropriate files. Ensures canonical information goes in `auth.md` and evolving implementation details stay in task logs. |
 
 > These prompts are consistently interpreted across all GTM task threads. Updates to interpretation should be explicitly discussed and recorded in `auth.md` or task-specific files if needed.
-## 📌 Interaction Prompts and Workflow Signals
-
-These standardized prompts guide the assistant’s behavior across all GTM tasks and sessions:
-
-| Prompt Type       | User Prompt Example                                                                                                                                                                                                                                                                         | Assistant Behavior                                                                                                                                                   |
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 🔐 **Anchor**         | Reminder: Always consult `auth.md` as the canonical source of truth for container IDs, tracking IDs, environment ownership, and platform status. For all scoped changes, diagnostics, or implementations, reference the relevant `task-*.md` file. All updates must preserve historical continuity — append, don’t overwrite, unless explicitly directed. | Enforces `auth.md` as the single source of truth. Only makes scoped changes in task files. Never overwrites historical entries unless explicitly directed.             |
-| 🧠 **Request Feedback** | From your perspective, is there anything I’m overlooking? Are there any risks, dependencies, or better alternatives I should consider?                                                                                                                                                                                     | Performs deep review of logic, assumptions, and dependencies. Surfaces hidden risks, improvement options, and cross-task implications.                                |
-| 🚩 **Wrap-up + Save**   | We're at a good stopping point. Please summarize and commit the key verified information from this session to the proper project files. Use `auth.md` for canonical, high-level details and the relevant `task-*.md` file for scoped, implementation-specific updates. Be detailed and structured—include configuration states, command syntax used, version numbers, environment notes (e.g., OS differences), and any validated assumptions. | Saves a structured session summary to the appropriate files. Ensures canonical information goes in `auth.md` and evolving implementation details stay in task logs. |
-
-> These prompts are consistently interpreted across all GTM task threads. Updates to interpretation should be explicitly discussed and recorded in `auth.md` or task-specific files if needed.
 
 
+
+> 📎 _This file should be updated anytime container ownership changes, access permissions are granted/revoked, or new containers are discovered._
 
 ------
 
 
 
+## 🚫 Production Safeguard Policy
 
-> 📎 _This file should be updated anytime container ownership changes, access permissions are granted/revoked, or new containers are discovered._
+> **MANDATORY DIRECTIVE: No tag changes, publishing actions, or tracking implementations may be performed on production environments unless explicitly validated in a controlled test environment.**
+
+This project operates under a **strict isolation principle**:
+
+- ✅ **All GTM changes must be staged in test environments first**, with all of the following confirmed:
+  - `/test-page` route on sfzc.org
+  - OrbStack/Docker-based local testbed (`http://localhost:8080`)
+  - GTM Preview mode with Consent Debugger, Omnibug, and GA4 DebugView
+- 🚫 **Do not publish changes directly to production containers until successfully validated in a staging or preview environment, including:**
+  - Consent settings (`consentSettings`) are verified
+  - Tag firing behavior is validated on controlled pages
+  - Tracking parameters appear correctly in GA4 DebugView and all changes have been **successfully tested in GTM Preview Mode**
+- ✅ Always:
+  - Export and save GTM container versions (`.json`) before changes
+  - Use scoped triggers (e.g., `Page URL contains /test-page`) during testing
+  - Log all validation results in the associated `task-*.md` file
+
+------
+
+> 🔒 **This policy ensures GDPR/CCPA compliance, data accuracy, and protects against unintended data leakage or broken analytics.**
+>  Any violations must be reported and remediated immediately.
+
+
 
 ------
 

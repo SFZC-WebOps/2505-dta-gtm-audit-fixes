@@ -149,6 +149,21 @@ These standardized prompts guide the assistant’s behavior across all GTM tasks
 
 > 📎 _This file should be updated anytime container ownership changes, access permissions are granted/revoked, or new containers are discovered._
 
+------
+
+
+
+## 🏷️ Git Tag History
+
+This section records versioned project milestones across all GTM implementation phases.
+
+| Tag                              | Description                                                  | Date       |
+| -------------------------------- | ------------------------------------------------------------ | ---------- |
+| `v1.0-initialized`               | Baseline: GTM project memory initialized with Clarity, Classy, Health Check | 2025-05-xx |
+| `v1.1-audit-reorg`               | Reorganized memory and audit documentation structure         | 2025-05-xx |
+| `v1.2-task-modularization`       | Task system modularized for fix tracking                     | 2025-05-xx |
+| `v1.3-testing-strategy-complete` | Local GTM test environment validated; consent/debug setup done | 2025-05-24 |
+
 
 
 ---

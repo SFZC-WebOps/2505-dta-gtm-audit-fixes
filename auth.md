@@ -123,7 +123,7 @@ These standardized prompts guide the assistant’s behavior across all GTM tasks
 
 | Prompt Type       | User Prompt Example                                                                                                                                                                                                                                                                         | Assistant Behavior                                                                                                                                                   |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 🔐 **Anchor**         | **Reminder:** Always consult `auth.md` as the canonical source of truth for container IDs, tracking IDs, environment ownership, and platform status. For all scoped changes, diagnostics, or implementations, reference the relevant `task-*.md` file. All updates must preserve historical continuity — append, don’t overwrite, unless explicitly directed. | Enforces `auth.md` as the single source of truth. Only makes scoped changes in task files. Never overwrites historical entries unless explicitly directed.             |
+| 🔐 **Anchor**           | **Reminder:** Always confirm that `auth.md` is loaded and available in the session before continuing. This file is the canonical source of truth for container IDs, tracking IDs, environment ownership, and platform status. For all scoped changes, diagnostics, or implementations, reference the relevant `task-*.md` file. All updates must preserve historical continuity — append, don’t overwrite, unless explicitly directed. | Enforces `auth.md` as the single source of truth. Performs a check at the start of every session. Refuses to proceed if `auth.md` is not found. Only makes scoped changes in task files. Never overwrites historical entries unless explicitly directed. |
 | 🧠 **Request Feedback** | **From your perspective, is there anything I’m overlooking? Are there any risks, dependencies, or better alternatives I should consider?**                                                                                                                                                                                     | Performs deep review of logic, assumptions, and dependencies. Surfaces hidden risks, improvement options, and cross-task implications.                                |
 | 🚩 **Wrap-up + Save**   | **We're at a good stopping point. Please summarize and commit the key verified information from this session to the proper project files. Use `auth.md` for canonical, high-level details and the relevant `task-*.md` file for scoped, implementation-specific updates. Be detailed and structured—include configuration states, command syntax used, version numbers, environment notes (e.g., OS differences), and any validated assumptions.** | Saves a structured session summary to the appropriate files. Ensures canonical information goes in `auth.md` and evolving implementation details stay in task logs. |
 
@@ -171,14 +171,15 @@ This project operates under a **strict isolation principle**:
 
 This section records versioned project milestones across all GTM implementation phases.
 
-| Tag                              | Description                                                  | Date       |
-| -------------------------------- | ------------------------------------------------------------ | ---------- |
-| `v1.0-initialized`               | Baseline: GTM project memory initialized with Clarity, Classy, Health Check | 2025-05-xx |
-| `v1.1-audit-reorg`               | Reorganized memory and audit documentation structure         | 2025-05-xx |
-| `v1.2-task-modularization`       | Task system modularized for fix tracking                     | 2025-05-xx |
-| `v1.3-testing-strategy-complete` | Local GTM test environment validated; consent/debug setup done | 2025-05-24 |
+| Tag                                  | Description                                                  | Date       |
+| ------------------------------------ | ------------------------------------------------------------ | ---------- |
+| `v1.0-initialized`                   | Baseline: GTM project memory initialized with Clarity, Classy, Health Check | 2025-05-xx |
+| `v1.1-audit-reorg`                   | Reorganized memory and audit documentation structure         | 2025-05-xx |
+| `v1.2-task-modularization`           | Task system modularized for fix tracking                     | 2025-05-xx |
+| `v1.3-testing-strategy-complete`     | Local GTM test environment validated; consent/debug setup done | 2025-05-24 |
+| `git tag v1.4-prod-safeguard-policy` | Policy added to auth.md enforcing test-only GTM changes before production publish | 2025-05-25 |
 
-
+ 
 
 ---
 

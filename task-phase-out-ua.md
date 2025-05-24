@@ -10,7 +10,7 @@ Safely remove all remaining `UA-1720237-1` (Universal Analytics) tags and replac
 ---
 
 ## 🔍 Problem Statement
-- UA is deprecated as of July 2023
+- UA is deprecated as of July 2023 - Not to be used in SFZC production environment
 - Tags using `UA-1720237-1` still exist in GTM container `GTM-TGH83XK`
 - Continuing to use UA tags risks inaccurate tracking and unsupported behavior
 
@@ -38,6 +38,14 @@ For each UA tag, determine:
 ### ✅ Step 5: Validate
 - Test GA4 versions using GTM Preview and GA4 DebugView
 - Confirm matching event names and parameters in GA4 Realtime
+- **Parameter Mapping:** Confirm that UA parameters (`event_category`, `event_action`, `event_label`) are mapped to GA4 custom parameters (e.g., `event_category` → `category`, or via `event_name` and `event_params`)
+- **Event Naming:** Ensure event names follow GA4 conventions (e.g., `button_click`, `form_submit`, `donation_start`) rather than UA-style labels
+- **Realtime View:** Use GA4 Realtime and DebugView to validate that:
+  - The event fires on correct trigger
+  - All expected parameters appear under `event_params`
+  - Event matches naming and structure defined in GA4 Admin > Events
+
+Use consistent page interaction (e.g., clickstream or form submission) to trigger both UA and GA4 versions for side-by-side comparison before fully deprecating UA.
 
 ---
 

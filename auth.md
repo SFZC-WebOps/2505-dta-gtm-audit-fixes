@@ -56,10 +56,35 @@
 
 ---
 
+
+
+### ✅ Verified Local Testing Environment (2025-05-24)
+- A controlled GTM validation environment was created using OrbStack + Docker on macOS.
+- URL: `http://localhost:8080` served via NGINX container mapped to `/Volumes/webops-work/SITES/gtm-test`
+- Used container: `GTM-TGH83XK` (Preview Mode only)
+- Consent Mode validated via Tag Assistant (Consent tab):
+  - `analytics_storage`: Denied by default
+  - `ad_storage`: Denied
+  - `security_storage`: Granted
+- Confirmed that GTM tags honor consent gating
+- No changes were published to production or Drupal
+
+
+
+------
+
+
+
 ## 🚧 Outstanding Questions / To Be Verified
+
 - Is the server-side GTM container actively in use (e.g., routed via DNS, App Engine, or GA4 forwarding)?
 - Can administrative access to `GTM-M7BMM8ZQ` be obtained from Temple Advertising?
 - Are any tags still relying on the deprecated UA (`UA-1720237-1`)?
+- The following core compliance and tracking capabilities are **not yet implemented** and require remediation before further publishing (these gaps expose SFZC to privacy compliance risk (GDPR/CCPA) and limit analytics accuracy. Tasks have been filed and are staged for remediation per project timeline):
+  - **Consent Enforcement:** All tags lack `consentSettings`; Cookiebot CMP is not currently gating behavior
+  - **Clarity Tag Deployment:** Microsoft Clarity is not firing on all pages and is not consent-aware
+  - **Cross-Domain Tracking:** GA4 tag lacks `linker_domains`, causing session continuity loss across `sfzc.org`, `give.sfzc.org`, and `forms.sfzc.org`
+
 
 ---
 
@@ -130,8 +155,10 @@ These standardized prompts guide the assistant’s behavior across all GTM tasks
 
 ## 🔄 Change Log
 
-| Date       | Change                                                                                                  | By         |
-|------------|---------------------------------------------------------------------------------------------------------|------------|
-| 2025-05-18 | Added `📌 Interaction Prompts and Workflow Signals` section to formalize assistant behavior              | Assistant  |
-| 2025-05-18 | Clarified that `auth.md` should only store canonical, high-level project truths                         | Assistant  |
-| 2025-05-19 | Updated Risk Assessment table with consent and ownership risks; added stakeholder directives from Dan Belsky | Greg Bilke |
+| Date       | Change                                                       | By              |
+| ---------- | ------------------------------------------------------------ | --------------- |
+| 2025-05-18 | Added `📌 Interaction Prompts and Workflow Signals` section to formalize assistant behavior | Assistant       |
+| 2025-05-18 | Clarified that `auth.md` should only store canonical, high-level project truths | Assistant       |
+| 2025-05-19 | Updated Risk Assessment table with consent and ownership risks; added stakeholder directives from Dan Belsky | Greg Bilke (GB) |
+| 2025-05-23 | Claude cross-check issuance                                  | GB              |
+| 2025-05-24 | Added `Verified Local Testing Environment`                   | GB              |

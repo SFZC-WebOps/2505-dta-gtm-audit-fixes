@@ -22,7 +22,12 @@ GA4 configuration tag is missing `linker_domains`. Cross-domain tracking is brok
 
 ## 🛠️ Implementation Plan
 
+#### Dependency 
+
+This task is **dependent on GA4 tag using updated linker config with proper consent handling**
+
 ### ✅ Step 1: Update GA4 Config Tag
+
 Add:
 ```javascript
 'linker': {
@@ -39,6 +44,22 @@ Ensure links between domains either:
 - Click through from `sfzc.org` → `give.sfzc.org` and `forms.sfzc.org`
 - Use Chrome DevTools or GTM Preview Mode to observe `_gl=` parameter
 - Confirm continuity in GA4 Realtime and DebugView
+- _gl Parameter Validation Guidelines (when testing cross-domain functionality, confirm that Google’s linker parameter (`_gl`) is preserved in the URL during navigation)
+  - Example transition:
+     From: `https://sfzc.org/events`
+     To: `https://give.sfzc.org/donate?_gl=1*xyz123...`
+  - **What to check:**
+    - `_gl` parameter appears in the destination URL upon click-through
+    - The value should persist during the session
+    - GA4 DebugView should show continuous session (no new user ID or session start)
+  - **Suggested Tools:**
+    - Chrome DevTools → Network → check `document` request URLs
+    - GTM Preview → Click the link and observe the generated navigation
+    - GA4 Realtime → Validate that `page_view` or event is not a “new session” unless expected
+    - 
+  - Capture screenshots showing (confirms linker domains are functioning correctly):
+    - `_gl` in the URL bar after cross-domain click
+    - Matching session ID in GA4 before and after navigation
 
 ---
 

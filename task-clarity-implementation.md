@@ -11,6 +11,7 @@ Implement Microsoft Clarity via Google Tag Manager for session heatmapping and u
 ## 🔍 Problem Statement
 - Clarity tracking ID `rfyzkzgfcs` is verified in `auth.md`
 - No dedicated GTM tag or task file documents its setup
+- Consent type: `analytics_storage`
 - Tag Assistant audit shows the Clarity tag is **not firing on all pages**
 - No current mechanism exists for testing or consent enforcement
 
@@ -22,6 +23,10 @@ Implement Microsoft Clarity via Google Tag Manager for session heatmapping and u
 ---
 
 ## 🛠️ Implementation Plan
+
+### Dependency
+
+This task should not go live until Consent Enforcement and Testing Strategy tasks are complete.
 
 ### ✅ Step 1: Build GTM Tag
 - Use `Custom HTML` tag type

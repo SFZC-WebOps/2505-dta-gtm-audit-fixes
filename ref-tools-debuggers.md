@@ -1,10 +1,7 @@
 ---
-# 📌 Task: Tools and Debuggers for GTM Validation
+# Reference: Tools and Debuggers for GTM Validation
 > 📎 References: `auth.md` (canonical authority for GTM project)
 ---
-
-## 🎯 Goal
-Document and consistently use the recommended tools for validating GTM tag configuration, consent behavior, and analytics output.
 
 ---
 
@@ -16,6 +13,11 @@ Document and consistently use the recommended tools for validating GTM tag confi
 | Google Tag Assistant (Preview Mode) | Visualize GTM tag firing behavior and setup       |
 | Google Consent Mode Debugger | Validate consent states and enforcement                 |
 | Omnibug                      | Inspect outbound analytics and tracking requests        |
+
+> ✅ All validation procedures used in the [Cross-Check Report (2025-05-21)](gtm-crosscheck-report-2025-05-21.md) align with the tools listed above. These tools form the standard baseline for verifying tag behavior, consent enforcement, and data accuracy.
+
+> ℹ️ **Note on Microsoft Clarity:**
+>  Clarity’s internal dashboard (https://clarity.microsoft.com) serves as a real-time validation environment for verifying tag installation and tracking behavior. Use it to confirm heatmap coverage, session recording presence, and script firing after consent is granted.
 
 ---
 
@@ -51,4 +53,4 @@ gtag('consent', 'default', {
 ## 🔄 Change Log
 | Date       | Change                        | By         |
 |------------|-------------------------------|------------|
-| 2025-05-18 | Task doc created               | Assistant  |
+| 2025-05-18 | Ref doc created             | Assistant  |

@@ -49,6 +49,46 @@ For each tag:
 ### ✅ Step 4: Validate
 - Use GTM Preview Mode with Consent Mode Debugger
 - Confirm tags wait for granted consent before firing
+- #### ✅ Validation Steps
+
+  - Use GTM Preview Mode and the Google Consent Mode Debugger on a test URL like:
+
+    ```
+    arduino
+    
+    
+    CopyEdit
+    https://sfzc.org/test-page
+    ```
+
+  - Validate that **no tags fire before consent is granted**, particularly:
+
+    - GA4 Configuration (`G-BRXZCXMZP5`)
+    - Microsoft Clarity (`rfyzkzgfcs`)
+    - Facebook Pixel (`1062378757459509`)
+    - Classy-related tracking tags
+    - YouTube and embedded video-related tags
+
+  #### ✅ What to Check
+
+  - Tags wait for explicit Cookiebot acceptance (check for `CookieConsentAccepted` event)
+
+  - Tag firing status changes from “blocked” to “active” once consent is granted
+
+  - Verify proper `consentSettings` fields in tag config:
+
+    ```
+    json
+    
+    
+    CopyEdit
+    "consentSettings": {
+      "consentRequired": true,
+      "consentTypes": ["ad_storage", "analytics_storage"]
+    }
+    ```
+
+  This ensures GDPR/CCPA compliance and prevents data leakage before user choice.
 
 ---
 

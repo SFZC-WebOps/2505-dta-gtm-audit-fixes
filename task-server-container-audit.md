@@ -57,7 +57,7 @@ Determine the current status and compliance of the server-side GTM container (`G
 ---
 
 ## 📋 Decision Checklist
-- [ ] Confirmed if container is in active use
+- [ ] Confirm if container is in active use
 - [ ] GA4 or FB integration confirmed or rejected
 - [ ] Access path or point-of-contact established
 - [ ] Consent logic enforced or container disabled

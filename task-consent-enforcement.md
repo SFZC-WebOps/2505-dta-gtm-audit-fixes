@@ -54,23 +54,19 @@ For each tag:
   - Use GTM Preview Mode and the Google Consent Mode Debugger on a test URL like:
 
     ```
-    arduino
-    
-    
-    CopyEdit
     https://sfzc.org/test-page
     ```
-
+    
   - Validate that **no tags fire before consent is granted**, particularly:
-
+  
     - GA4 Configuration (`G-BRXZCXMZP5`)
     - Microsoft Clarity (`rfyzkzgfcs`)
     - Facebook Pixel (`1062378757459509`)
     - Classy-related tracking tags
     - YouTube and embedded video-related tags
-
+  
   #### ✅ What to Check
-
+  
   - Tags wait for explicit Cookiebot acceptance (check for `CookieConsentAccepted` event)
 
   - Tag firing status changes from “blocked” to “active” once consent is granted
@@ -80,14 +76,12 @@ For each tag:
     ```
     json
     
-    
-    CopyEdit
     "consentSettings": {
       "consentRequired": true,
       "consentTypes": ["ad_storage", "analytics_storage"]
     }
     ```
-
+  
   This ensures GDPR/CCPA compliance and prevents data leakage before user choice.
 
 ---
@@ -101,8 +95,10 @@ For each tag:
 ---
 
 ## 🔄 Change Log
-
 | Date       | Change                                                                 | By         |
 |------------|------------------------------------------------------------------------|------------|
 | 2025-05-18 | Task doc created                                                        | Assistant  |
 | 2025-05-19 | Added stakeholder directive requiring consent enforcement for all tags | Greg Bilke |
+| 2025-05-25 | Added rollback procedure section per Opus cross-check                  | Assistant  |
+| 2025-05-25 | Added prerequisites section based on cross-check validation requirements | Assistant  |
+| 2025-05-25 | Added tailored common errors section                                   | Assistant  |

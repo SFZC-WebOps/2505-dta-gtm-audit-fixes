@@ -20,11 +20,15 @@ GA4 configuration tag is missing `linker_domains`. Cross-domain tracking is brok
 
 ---
 
+## ⚠️ Prerequisites
+
+- GA4 tag must already have consent settings implemented
+- Consent enforcement task must be complete
+- Test pages must be configured (`/test-page`)
+
+---
+
 ## 🛠️ Implementation Plan
-
-#### Dependency 
-
-This task is **dependent on GA4 tag using updated linker config with proper consent handling**
 
 ### ✅ Step 1: Update GA4 Config Tag
 
@@ -72,6 +76,9 @@ Ensure links between domains either:
 ---
 
 ## 🔄 Change Log
-| Date       | Change                        | By         |
-|------------|-------------------------------|------------|
-| 2025-05-18 | Task doc created               | Assistant  |
+| Date       | Change                                                | By         |
+|------------|-------------------------------------------------------|------------|
+| 2025-05-18 | Task doc created                                       | Assistant  |
+| 2025-05-25 | Added rollback procedure section per Opus cross-check | Assistant  |
+| 2025-05-25 | Added prerequisites section based on cross-check validation requirements | Assistant  |
+| 2025-05-25 | Added tailored common errors section                  | Assistant  |

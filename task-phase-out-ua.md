@@ -1,4 +1,3 @@
----
 # 📌 Task: Phase Out Universal Analytics (UA) Tags
 > 📎 References: `auth.md` (canonical authority for GTM project)
 
@@ -13,6 +12,14 @@ Safely remove all remaining `UA-1720237-1` (Universal Analytics) tags and replac
 - UA is deprecated as of July 2023 - Not to be used in SFZC production environment
 - Tags using `UA-1720237-1` still exist in GTM container `GTM-TGH83XK`
 - Continuing to use UA tags risks inaccurate tracking and unsupported behavior
+
+---
+
+## ⚠️ Prerequisites
+
+- Consent enforcement must be validated (`task-consent-enforcement.md`)
+- GTM Preview Mode and Consent Debugger must be available for testing
+- Local test page (`/test-page`) or staging environment must be functional
 
 ---
 
@@ -57,7 +64,31 @@ Use consistent page interaction (e.g., clickstream or form submission) to trigge
 
 ---
 
+## ⚠️ Common Errors
+
+- Leaving UA tags active, causing duplicate tracking alongside GA4
+- Migrated GA4 tags not replicating UA event structure correctly (missing custom parameters)
+- Misnaming GA4 events or parameters, leading to inconsistent reporting in GA4 Admin
+- Forgetting to pause UA tags after GA4 is validated
+- Testing only pageviews and not event-based tags in GA4 DebugView
+
+---
+
+## 🔄 Rollback Procedure
+
+If issues arise after implementation:
+
+- Revert to previously exported GTM container version (`v15` or tagged snapshot)
+- Pause or delete new/modified tag(s) associated with this task
+- Restore known-good tag configurations as documented in GTM history or this task file
+- Validate with GTM Preview + Consent Debugger before re-enabling changes
+
+---
+
 ## 🔄 Change Log
-| Date       | Change                        | By         |
-|------------|-------------------------------|------------|
-| 2025-05-18 | Task doc created               | Assistant  |
+| Date       | Change                                                | By         |
+|------------|-------------------------------------------------------|------------|
+| 2025-05-18 | Task doc created                                       | Assistant  |
+| 2025-05-25 | Added rollback procedure section per Opus cross-check | Assistant  |
+| 2025-05-25 | Added prerequisites section based on cross-check validation requirements | Assistant  |
+| 2025-05-25 | Added tailored common errors section                  | Assistant  |

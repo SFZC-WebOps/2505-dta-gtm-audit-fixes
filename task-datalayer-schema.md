@@ -14,6 +14,14 @@ Document current `dataLayer` schema for donation, event, and user data.
 
 ---
 
+## ⚠️ Prerequisites
+
+- Chrome DevTools must be available for in-browser inspection
+- Consent enforcement task must be completed (if gating applies to dataLayer pushes)
+- Test pages or real-use paths (donate, events, user account) must be accessible
+
+---
+
 ## 🛠️ Implementation Plan
 
 ### ✅ Step 1: Audit Key Pages
@@ -40,8 +48,22 @@ Target the following page types:
 
 ---
 
+## ⚠️ Common Errors
+
+- Forgetting to capture `dataLayer` pushes triggered by user interaction (not just pageload)
+- Overlooking asynchronous script-based injections that modify `dataLayer`
+- Mapping keys that change format between different page types (e.g., donation vs. retreat events)
+- Schema examples not updated after a Drupal or Classy update
+- Assuming flat key structures without checking for nested objects
+
+
+---
+
 ## 🔄 Change Log
 | Date       | Change                                                      | By         |
 |------------|-------------------------------------------------------------|------------|
 | 2025-05-18 | Task doc created                                             | Assistant  |
 | 2025-05-21 | Added priority page types and structured audit instructions | Assistant  |
+| 2025-05-25 | Added rollback procedure section per Opus cross-check       | Assistant  |
+| 2025-05-25 | Added prerequisites section based on cross-check validation requirements | Assistant  |
+| 2025-05-25 | Added tailored common errors section                        | Assistant  |

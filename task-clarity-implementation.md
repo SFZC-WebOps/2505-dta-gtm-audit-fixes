@@ -67,7 +67,9 @@ This task should not go live until Consent Enforcement and Testing Strategy task
 ---
 
 ## 🔄 Change Log
-
-| Date       | Change                                             | By         |
-|------------|----------------------------------------------------|------------|
-| 2025-05-21 | Task created for Clarity GTM integration           | Assistant  |
+| Date       | Change                                                                                     | By         |
+|------------|--------------------------------------------------------------------------------------------|------------|
+| 2025-05-21 | Task created for Clarity GTM integration                                                   | Assistant  |
+| 2025-05-25 | Added rollback procedure section per Opus cross-check                                     | Assistant  |
+| 2025-05-25 | Added prerequisites section based on cross-check validation requirements                  | Assistant  |
+| 2025-05-25 | Added tailored common errors section | Assistant |

@@ -155,15 +155,15 @@ This project operates under a **strict isolation principle**:
 
 This section records versioned project milestones across all GTM implementation phases.
 
-| Tag                                  | Description                                                  | Date       |
-| ------------------------------------ | ------------------------------------------------------------ | ---------- |
+| Tag                                  | Description                                                                 | Date       |
+|--------------------------------------|-----------------------------------------------------------------------------|------------|
 | `v1.0-initialized`                   | Baseline: GTM project memory initialized with Clarity, Classy, Health Check | 2025-05-xx |
-| `v1.1-audit-reorg`                   | Reorganized memory and audit documentation structure         | 2025-05-xx |
-| `v1.2-task-modularization`           | Task system modularized for fix tracking                     | 2025-05-xx |
-| `v1.3-testing-strategy-complete`     | Local GTM test environment validated; consent/debug setup done | 2025-05-24 |
+| `v1.1-audit-reorg`                   | Reorganized memory and audit documentation structure                        | 2025-05-xx |
+| `v1.2-task-modularization`           | Task system modularized for fix tracking                                    | 2025-05-xx |
+| `v1.3-testing-strategy-complete`     | Local GTM test environment validated; consent/debug setup done              | 2025-05-24 |
 | `git tag v1.4-prod-safeguard-policy` | Policy added to auth.md enforcing test-only GTM changes before production publish | 2025-05-25 |
-
- 
+| `v1.5-crosscheck-verified`           | All scoped GTM tasks updated and verified after Opus 4 review               | 2025-05-25 |
+| `v1.6-tag-status-map-complete`      | Full project integrity check completed; 24-tag GTM status map created and linked to task-index.md | 2025-05-25 |
 
 ---
 
@@ -171,8 +171,9 @@ This section records versioned project milestones across all GTM implementation 
 
 | Date       | Change                                                       | By              |
 | ---------- | ------------------------------------------------------------ | --------------- |
-| 2025-05-18 | Added `📌 Interaction Prompts and Workflow Signals` section to formalize assistant behavior | Assistant       |
 | 2025-05-18 | Clarified that `auth.md` should only store canonical, high-level project truths | Assistant       |
 | 2025-05-19 | Updated Risk Assessment table with consent and ownership risks; added stakeholder directives from Dan Belsky | Greg Bilke (GB) |
-| 2025-05-23 | Claude cross-check issuance                                  | GB              |
+| 2025-05-23 | Sonnet 3.5 cross-check issuance                                  | GB              |
 | 2025-05-24 | Added `Verified Local Testing Environment`                   | GB              |
+| 2025-05-23 | Opus 4 cross-check issuance - Project basline check - Ready to proceed with tasks                                | GB              |
+
